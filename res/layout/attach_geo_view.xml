@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/geo_attach_view_bg" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:vk="http://schemas.android.com/apk/res/com.vkontakte.android">
+    <FrameLayout android:id="@id/attach_geo_mapw" android:padding="1.0px" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="6.0dip">
+        <com.vkontakte.android.ui.RoundedImageView android:id="@id/attach_geo_map" android:layout_width="fill_parent" android:layout_height="130.0dip" android:scaleType="centerCrop" vk:cornerRadius="5.0dip" />
+        <ImageView android:layout_gravity="center" android:id="@id/attach_geo_marker" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:src="@drawable/map_marker_me" />
+        <ProgressBar android:layout_gravity="center" android:id="@id/attach_geo_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </FrameLayout>
+    <TextView android:textSize="12.0dip" android:textStyle="bold" android:textColor="#ff999999" android:ellipsize="marquee" android:gravity="center_horizontal" android:id="@id/attach_geo_addr" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="TextView" android:singleLine="true" android:shadowColor="#ffffffff" android:shadowDy="1.0" android:shadowRadius="1.0E-8" />
+    <Button android:textSize="13.0dip" android:textStyle="bold" android:textColor="@color/grey_btn" android:ellipsize="marquee" android:id="@id/attach_geo_remove" android:background="@drawable/grey_btn" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="6.0dip" android:text="@string/remove_geo" android:singleLine="true" />
+</LinearLayout>

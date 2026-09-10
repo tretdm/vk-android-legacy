@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/create_topic_root" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditText android:textSize="15.0dip" android:textColorHint="#ffaaaaaa" android:id="@id/newtopic_title" android:background="@null" android:padding="7.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/board_newtopic_title" android:inputType="textCapSentences">
+        <requestFocus />
+    </EditText>
+    <View android:id="@id/view1" android:background="#ffaaaaaa" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    <EditText android:textSize="15.0dip" android:textColorHint="#ffaaaaaa" android:gravity="top" android:id="@id/newtopic_message" android:background="@null" android:padding="7.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:hint="@string/board_newtopic_text" android:inputType="textCapSentences|textMultiLine" />
+</LinearLayout>

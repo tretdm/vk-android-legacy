@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/button_panel" android:background="@drawable/bottomnav_panel" android:layout_width="fill_parent" android:layout_height="48.5dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.vkontakte.android.StateShadowButton android:ellipsize="marquee" android:id="@id/btn_ok" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="1.0dip" android:layout_marginTop="1.0dip" android:layout_marginRight="2.0dip" android:layout_marginBottom="-4.0dip" android:text="@string/btn_select_place" android:singleLine="true" android:layout_weight="1.0" style="@style/deepblueButton" />
+</LinearLayout>

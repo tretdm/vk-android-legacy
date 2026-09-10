@@ -1,0 +1,327 @@
+.class public Lcom/vkontakte/android/UserProfile;
+.super Ljava/lang/Object;
+.source "UserProfile.java"
+
+# interfaces
+.implements Landroid/os/Parcelable;
+.implements Ljava/io/Serializable;
+
+
+# static fields
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/Parcelable$Creator",
+            "<",
+            "Lcom/vkontakte/android/UserProfile;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public static final OFFLINE:I = 0x0
+
+.field public static final ONLINE_MOBILE_APP:I = 0x3
+
+.field public static final ONLINE_MOBILE_SITE:I = 0x2
+
+.field public static final ONLINE_SITE:I = 0x1
+
+
+# instance fields
+.field public bdate:Ljava/lang/String;
+
+.field public city:I
+
+.field public country:I
+
+.field public f:Z
+
+.field public firstName:Ljava/lang/String;
+
+.field public fullName:Ljava/lang/String;
+
+.field public lastName:Ljava/lang/String;
+
+.field public online:I
+
+.field public photo:Ljava/lang/String;
+
+.field public uid:I
+
+.field public university:Ljava/lang/String;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .prologue
+    .line 40
+    new-instance v0, Lcom/vkontakte/android/UserProfile$1;
+
+    invoke-direct {v0}, Lcom/vkontakte/android/UserProfile$1;-><init>()V
+
+    .line 39
+    sput-object v0, Lcom/vkontakte/android/UserProfile;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    .line 48
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 1
+
+    .prologue
+    .line 35
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 17
+    const-string v0, "DELETED"
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->firstName:Ljava/lang/String;
+
+    .line 18
+    const-string v0, "DELETED"
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->fullName:Ljava/lang/String;
+
+    .line 19
+    const-string v0, "DELETED"
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->lastName:Ljava/lang/String;
+
+    .line 20
+    const-string v0, "http://vkontakte.ru/images/question_c.gif"
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->photo:Ljava/lang/String;
+
+    .line 22
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/vkontakte/android/UserProfile;->online:I
+
+    .line 24
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->university:Ljava/lang/String;
+
+    .line 25
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->bdate:Ljava/lang/String;
+
+    .line 37
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/os/Parcel;)V
+    .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
+
+    .prologue
+    .line 27
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 17
+    const-string v0, "DELETED"
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->firstName:Ljava/lang/String;
+
+    .line 18
+    const-string v0, "DELETED"
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->fullName:Ljava/lang/String;
+
+    .line 19
+    const-string v0, "DELETED"
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->lastName:Ljava/lang/String;
+
+    .line 20
+    const-string v0, "http://vkontakte.ru/images/question_c.gif"
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->photo:Ljava/lang/String;
+
+    .line 22
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/vkontakte/android/UserProfile;->online:I
+
+    .line 24
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->university:Ljava/lang/String;
+
+    .line 25
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->bdate:Ljava/lang/String;
+
+    .line 28
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/vkontakte/android/UserProfile;->uid:I
+
+    .line 29
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->firstName:Ljava/lang/String;
+
+    .line 30
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->fullName:Ljava/lang/String;
+
+    .line 31
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/vkontakte/android/UserProfile;->photo:Ljava/lang/String;
+
+    .line 32
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/vkontakte/android/UserProfile;->online:I
+
+    .line 33
+    return-void
+.end method
+
+
+# virtual methods
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 52
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 4
+    .param p1, "o"    # Ljava/lang/Object;
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 74
+    instance-of v2, p1, Lcom/vkontakte/android/UserProfile;
+
+    if-eqz v2, :cond_0
+
+    move-object v0, p1
+
+    .line 75
+    check-cast v0, Lcom/vkontakte/android/UserProfile;
+
+    .line 76
+    .local v0, "p":Lcom/vkontakte/android/UserProfile;
+    iget v2, p0, Lcom/vkontakte/android/UserProfile;->uid:I
+
+    iget v3, v0, Lcom/vkontakte/android/UserProfile;->uid:I
+
+    if-ne v2, v3, :cond_0
+
+    iget-object v2, p0, Lcom/vkontakte/android/UserProfile;->fullName:Ljava/lang/String;
+
+    iget-object v3, v0, Lcom/vkontakte/android/UserProfile;->fullName:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/vkontakte/android/UserProfile;->photo:Ljava/lang/String;
+
+    iget-object v3, v0, Lcom/vkontakte/android/UserProfile;->photo:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v1, 0x1
+
+    .line 78
+    .end local v0    # "p":Lcom/vkontakte/android/UserProfile;
+    :cond_0
+    return v1
+.end method
+
+.method public hashCode()I
+    .locals 1
+
+    .prologue
+    .line 70
+    iget v0, p0, Lcom/vkontakte/android/UserProfile;->uid:I
+
+    return v0
+.end method
+
+.method public toString()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 65
+    if-nez p0, :cond_0
+
+    const-string v0, "<NULL>"
+
+    .line 66
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/vkontakte/android/UserProfile;->fullName:Ljava/lang/String;
+
+    goto :goto_0
+.end method
+
+.method public writeToParcel(Landroid/os/Parcel;I)V
+    .locals 1
+    .param p1, "p"    # Landroid/os/Parcel;
+    .param p2, "arg1"    # I
+
+    .prologue
+    .line 57
+    iget v0, p0, Lcom/vkontakte/android/UserProfile;->uid:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 58
+    iget-object v0, p0, Lcom/vkontakte/android/UserProfile;->firstName:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 59
+    iget-object v0, p0, Lcom/vkontakte/android/UserProfile;->fullName:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 60
+    iget-object v0, p0, Lcom/vkontakte/android/UserProfile;->photo:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 61
+    iget v0, p0, Lcom/vkontakte/android/UserProfile;->online:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 62
+    return-void
+.end method

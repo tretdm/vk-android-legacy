@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/sett_general">
+        <ListPreference android:entries="@array/sett_friends_order" android:title="@string/sett_flist_sort" android:key="friendsOrder" android:defaultValue="hints" android:dialogTitle="@string/sett_flist_sort" android:entryValues="@array/sett_friends_order_v" />
+        <ListPreference android:entries="@array/sett_update_interval_items" android:title="@string/sett_update_interval" android:key="updateInterval" android:dependency="enableC2DM" android:defaultValue="180000" android:dialogTitle="@string/sett_update_interval" android:entryValues="@array/sett_update_interval_v" />
+        <CheckBoxPreference android:title="@string/sett_push" android:key="enableC2DM" android:summary="@string/sett_push_summary" android:defaultValue="true" android:disableDependentsState="true" />
+        <CheckBoxPreference android:title="@string/sett_update_on_open" android:key="refreshOnOpen" android:summary="@string/sett_update_on_open_summary" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/sett_bdays" android:key="notifyBDays" android:defaultValue="true" />
+        <Preference android:title="@string/sett_network_prefs" android:key="network" android:summary="" />
+        <Preference android:title="@string/sett_advanced" android:key="advanced" android:summary="" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/sett_notifications" android:key="cat_notify">
+        <CheckBoxPreference android:title="@string/sett_notify_sound" android:key="notifySound" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/sett_notify_vibrate" android:key="notifyVibrate" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/sett_notify_led" android:key="notifyLED" android:defaultValue="true" />
+        <RingtonePreference android:title="@string/sett_ringtone" android:key="notifyRingtone" android:defaultValue="content://settings/system/notification_sound" android:ringtoneType="notification" android:showDefault="true" android:showSilent="false" />
+        <Preference android:title="@string/sett_dnd_hour" android:key="dnd_hour" android:summary="" />
+        <Preference android:title="@string/sett_dnd_8hours" android:key="dnd_8hours" android:summary="" />
+        <Preference android:title="@string/sett_dnd_cancel" android:key="dnd_cancel" android:summary="" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/sett_video_calls" android:key="cat_video_calls">
+        <CheckBoxPreference android:title="@string/sett_accept_calls" android:key="acceptVoip" android:defaultValue="true" />
+        <RingtonePreference android:title="@string/sett_call_ringtone" android:key="voipRingtone" android:defaultValue="content://settings/system/notification_sound" android:ringtoneType="ringtone" android:showDefault="true" android:showSilent="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/sett_account">
+        <Preference android:title="@string/sett_news_banned" android:key="newsBanned" android:summary="@string/sett_news_banned_summary" />
+        <Preference android:title="@string/sett_sync" android:key="sync" android:summary="" />
+        <Preference android:title="@string/log_out" android:key="logOut" android:summary="" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,57 @@
+.class Lcom/vkontakte/android/ChatActivity$18;
+.super Ljava/lang/Object;
+.source "ChatActivity.java"
+
+# interfaces
+.implements Landroid/view/animation/Interpolator;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/vkontakte/android/ChatActivity;->showTyping(Z)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lcom/vkontakte/android/ChatActivity;
+
+
+# direct methods
+.method constructor <init>(Lcom/vkontakte/android/ChatActivity;)V
+    .locals 0
+
+    .prologue
+    .line 1
+    iput-object p1, p0, Lcom/vkontakte/android/ChatActivity$18;->this$0:Lcom/vkontakte/android/ChatActivity;
+
+    .line 791
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getInterpolation(F)F
+    .locals 2
+    .param p1, "input"    # F
+
+    .prologue
+    .line 793
+    const/high16 v0, 0x3fc00000    # 1.5f
+
+    mul-float/2addr v0, p1
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(FF)F
+
+    move-result v0
+
+    return v0
+.end method

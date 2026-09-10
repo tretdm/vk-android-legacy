@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/photo_info_likes_wrap" android:paddingLeft="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/imageView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_like_up" />
+        <TextView android:textColor="#ffaaaaaa" android:id="@id/photo_info_likes" android:paddingLeft="5.0dip" android:paddingTop="4.0dip" android:paddingRight="10.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" android:singleLine="true" />
+    </LinearLayout>
+    <TextView android:textColor="#ffaaaaaa" android:id="@id/photo_info_geo" android:paddingLeft="10.0dip" android:paddingTop="4.0dip" android:paddingRight="10.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" android:singleLine="true" android:layout_below="@id/photo_info_likes_wrap" android:layout_alignParentLeft="true" />
+    <TextView android:textColor="#ffaaaaaa" android:id="@id/photo_info_added_by" android:paddingLeft="10.0dip" android:paddingTop="4.0dip" android:paddingRight="10.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" android:singleLine="true" android:layout_below="@id/photo_info_geo" android:layout_alignParentLeft="true" />
+    <TextView android:textColor="#ffaaaaaa" android:id="@id/photo_info_date" android:paddingLeft="10.0dip" android:paddingTop="4.0dip" android:paddingRight="10.0dip" android:paddingBottom="7.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" android:singleLine="true" android:layout_below="@id/photo_info_added_by" android:layout_alignParentLeft="true" />
+    <include android:id="@id/photo_info_load_comments" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/photo_info_date" android:layout_alignParentLeft="true" layout="@layout/load_more_comments" />
+</RelativeLayout>

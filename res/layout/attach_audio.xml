@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/aa_icon" android:duplicateParentState="false" android:layout_width="36.0dip" android:layout_height="36.0dip" android:src="@drawable/ic_play_list" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <TextView android:textColor="#ff000000" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/aa_title" android:duplicateParentState="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="7.0dip" android:text="Audio Attach View" android:singleLine="true" android:layout_toRightOf="@id/aa_icon" android:layout_alignTop="@id/aa_icon" />
+    <ProgressBar android:id="@id/aa_seekbar" android:focusable="false" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="5.0dip" android:layout_marginTop="5.0dip" android:max="1000" android:progressDrawable="@drawable/blue_progressbar" android:layout_below="@id/aa_icon" style="?android:attr/progressBarStyleHorizontal" />
+</RelativeLayout>

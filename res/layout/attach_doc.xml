@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.vkontakte.android.DocAttachView android:gravity="center_vertical" android:background="@drawable/highlight_first" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="top" android:id="@id/imageView1" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="2.0dip" android:layout_marginRight="5.0dip" android:src="@drawable/ic_doc" />
+    <LinearLayout android:orientation="vertical" android:id="@id/linearLayout1" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textColor="@color/main_text" android:ellipsize="marquee" android:id="@id/att_doc_title" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="TextView" android:singleLine="true" />
+        <TextView android:textColor="@color/hint" android:ellipsize="marquee" android:id="@id/att_doc_size" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="TextView" android:singleLine="true" />
+    </LinearLayout>
+</com.vkontakte.android.DocAttachView>

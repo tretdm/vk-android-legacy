@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="window_bg">#ffffffff</color>
+    <color name="window_bg_black">#ff000000</color>
+    <color name="window_bg_transparent">#00000000</color>
+</resources>

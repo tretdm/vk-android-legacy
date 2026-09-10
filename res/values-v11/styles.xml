@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BaseStyle" parent="@android:style/Theme.Holo.Light" />
+    <style name="BaseStyleNoTitle" parent="@android:style/Theme.Holo.Light">
+        <item name="android:background">@null</item>
+    </style>
+    <style name="TranslucentStyle" parent="@android:style/Theme.Holo.Light.Panel" />
+    <style name="LightStyle" parent="@android:style/Theme.Holo">
+        <item name="android:background">@null</item>
+    </style>
+    <style name="VideoPlayer" parent="@android:style/Theme.Holo.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@color/window_bg_transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="VideoPlayer2" parent="@android:style/Theme.Holo.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@color/window_bg_black</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>

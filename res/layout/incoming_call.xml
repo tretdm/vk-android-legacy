@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/black_gradient" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textColor="#ff909090" android:id="@id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:text="@string/call_from" />
+    <TextView android:textSize="25.0dip" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/call_user_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TextView" />
+    <FrameLayout android:id="@id/view3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:foreground="@drawable/call_photo_border">
+        <ImageView android:id="@id/call_user_photo" android:layout_width="133.0dip" android:layout_height="133.0dip" android:src="@drawable/photo_loading_black" />
+    </FrameLayout>
+    <View android:id="@id/view1" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0" />
+    <LinearLayout android:layout_gravity="bottom|center" android:id="@id/btns_reply_video" android:layout_width="213.0dip" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:id="@id/btn_reply" android:background="@drawable/btn_call_green_left" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="0.0px" android:layout_weight="1.0">
+            <ImageView android:id="@id/imageView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:src="@drawable/ic_call_reply_video" />
+            <TextView android:textSize="18.0dip" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/call_reply" android:singleLine="true" android:shadowColor="#80000000" android:shadowDy="1.0" android:shadowRadius="1.0" />
+        </LinearLayout>
+        <ImageButton android:id="@id/btn_reply_voice" android:background="@drawable/btn_call_green_right" android:layout_width="50.0dip" android:layout_height="wrap_content" android:layout_marginLeft="-2.0dip" android:src="@drawable/ic_call_reply_voice" />
+    </LinearLayout>
+    <Button android:textSize="18.0dip" android:textStyle="bold" android:textColor="#ffffffff" android:layout_gravity="bottom|center" android:id="@id/btn_reply_voice_only" android:background="@drawable/btn_call_green" android:layout_width="213.0dip" android:layout_height="wrap_content" android:text="@string/call_reply" android:shadowColor="#80000000" android:shadowDy="1.0" android:shadowRadius="1.0" />
+    <Button android:textSize="18.0dip" android:textStyle="bold" android:textColor="#ffffffff" android:layout_gravity="bottom|center" android:id="@id/btn_hangup" android:background="@drawable/btn_call_red" android:layout_width="213.0dip" android:layout_height="wrap_content" android:layout_marginTop="7.0dip" android:layout_marginBottom="35.0dip" android:text="@string/call_reject" android:shadowColor="#80000000" android:shadowDy="1.0" android:shadowRadius="1.0" />
+</LinearLayout>
