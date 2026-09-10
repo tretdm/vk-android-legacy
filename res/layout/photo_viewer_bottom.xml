@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/LinearLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0dip" android:textColor="#ffffffff" android:ellipsize="end" android:gravity="center" android:id="@id/photo_viewer_descr" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="TextView" android:maxLines="3" android:shadowColor="#ff000000" android:shadowDy="1.0" android:shadowRadius="3.0" />
+    <LinearLayout android:background="@drawable/photo_viewer_bttom" android:layout_width="fill_parent" android:layout_height="47.0dip">
+        <FrameLayout android:id="@id/photo_viewer_likes" android:background="@drawable/highlight" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <TextView android:textSize="18.0dip" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/photo_viewer_likes_t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="123" android:drawableLeft="@drawable/ic_photoview_like" android:drawablePadding="5.0dip" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/photo_viewer_comments" android:background="@drawable/highlight" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <TextView android:textSize="18.0dip" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/photo_viewer_comments_t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="123" android:drawableLeft="@drawable/ic_photoview_comment" android:drawablePadding="5.0dip" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/photo_viewer_tags" android:background="@drawable/highlight" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <TextView android:textSize="18.0dip" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/photo_viewer_tags_t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="123" android:drawableLeft="@drawable/ic_photoview_tag" android:drawablePadding="5.0dip" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

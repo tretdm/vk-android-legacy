@@ -1,0 +1,60 @@
+.class Lcom/vkontakte/android/fragments/ChatMembersFragment$11;
+.super Ljava/lang/Object;
+.source "ChatMembersFragment.java"
+
+# interfaces
+.implements Landroid/content/DialogInterface$OnClickListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/vkontakte/android/fragments/ChatMembersFragment;->showDndDialog()V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lcom/vkontakte/android/fragments/ChatMembersFragment;
+
+
+# direct methods
+.method constructor <init>(Lcom/vkontakte/android/fragments/ChatMembersFragment;)V
+    .locals 0
+
+    .prologue
+    .line 1
+    iput-object p1, p0, Lcom/vkontakte/android/fragments/ChatMembersFragment$11;->this$0:Lcom/vkontakte/android/fragments/ChatMembersFragment;
+
+    .line 525
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 2
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
+
+    .prologue
+    .line 528
+    iget-object v0, p0, Lcom/vkontakte/android/fragments/ChatMembersFragment$11;->this$0:Lcom/vkontakte/android/fragments/ChatMembersFragment;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/vkontakte/android/fragments/ChatMembersFragment;->access$32(Lcom/vkontakte/android/fragments/ChatMembersFragment;I)V
+
+    .line 529
+    iget-object v0, p0, Lcom/vkontakte/android/fragments/ChatMembersFragment$11;->this$0:Lcom/vkontakte/android/fragments/ChatMembersFragment;
+
+    invoke-static {v0}, Lcom/vkontakte/android/fragments/ChatMembersFragment;->access$33(Lcom/vkontakte/android/fragments/ChatMembersFragment;)V
+
+    .line 530
+    return-void
+.end method

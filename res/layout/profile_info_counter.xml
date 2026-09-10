@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/bg_profile_info_item" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="17.0dip" android:textColor="#ff000000" android:id="@id/profile_info_title" android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Info Title" android:layout_weight="1.0" />
+    <TextView android:textSize="17.0dip" android:textColor="#ff9fa2a5" android:id="@id/profile_info_text" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Info Data" />
+</LinearLayout>

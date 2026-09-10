@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center_vertical" android:id="@id/dfgh" android:background="@drawable/textfield_left_search" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="12.0dip" android:layout_marginTop="12.0dip" android:layout_marginRight="12.0dip" android:layout_marginBottom="12.0dip">
+        <EditText android:textSize="17.0dip" android:textColor="#ffffffff" android:textColorHint="#ff62646a" android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/quick_search_box" android:background="@null" android:paddingLeft="8.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:hint="@string/search" android:singleLine="true" android:drawableLeft="@drawable/ic_left_qsearch" android:drawablePadding="8.0dip" android:layout_weight="1.0" android:inputType="textFilter" android:imeOptions="actionSearch" />
+        <ImageView android:id="@id/quick_search_clear" android:layout_width="30.0dip" android:layout_height="fill_parent" android:src="@drawable/ic_search_clear" android:scaleType="center" />
+        <ImageView android:id="@id/quick_search_voice" android:layout_width="30.0dip" android:layout_height="fill_parent" android:src="@drawable/ic_search_mic" android:scaleType="center" />
+    </LinearLayout>
+</FrameLayout>

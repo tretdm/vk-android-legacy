@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/HLLinearLayout1" android:layout_width="fill_parent" android:layout_height="47.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/leftmenu_icon" android:layout_width="38.0dip" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginRight="5.0dip" android:src="@null" android:scaleType="center" />
+    <TextView android:textSize="17.0dip" android:textColor="#ffffffff" android:id="@id/leftmenu_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:text="TextView" android:singleLine="true" android:layout_weight="1.0" />
+    <TextView android:textSize="16.0dip" android:textColor="@color/left_counter" android:gravity="center" android:id="@id/leftmenu_counter" android:background="@drawable/left_notify" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="11.0dip" android:minWidth="23.0dip" android:text="1" android:singleLine="true" />
+</LinearLayout>

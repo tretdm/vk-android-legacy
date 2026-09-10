@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_side_padding">12.0dip</dimen>
+    <dimen name="list_side_padding_neg">-12.0dip</dimen>
+    <dimen name="map_height">200.0dip</dimen>
+</resources>

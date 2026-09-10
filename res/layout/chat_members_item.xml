@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/bg_post_comments_mid" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/chat_member_photo" android:layout_width="50.0dip" android:layout_height="50.0dip" android:layout_marginLeft="8.0dip" android:layout_marginTop="8.0dip" android:layout_marginRight="8.0dip" android:src="@drawable/photo_loading" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <LinearLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/chat_member_remove" android:layout_toRightOf="@id/chat_member_photo" android:layout_alignTop="@id/chat_member_photo">
+        <TextView android:textSize="19.0dip" android:textColor="#ff000000" android:id="@id/chat_member_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TextView" android:singleLine="true" />
+        <ImageView android:id="@id/chat_member_online" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:src="@drawable/ic_online" />
+    </LinearLayout>
+    <TextView android:textSize="16.0dip" android:textColor="@color/hint" android:ellipsize="end" android:id="@id/chat_member_inv" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="-8.0dip" android:text="TextView" android:singleLine="true" android:layout_toLeftOf="@id/chat_member_remove" android:layout_toRightOf="@id/chat_member_photo" android:layout_alignBottom="@id/chat_member_photo" android:layout_alignWithParentIfMissing="true" />
+    <ImageView android:id="@id/chat_member_remove" android:background="@drawable/highlight" android:padding="15.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-8.0dip" android:layout_marginBottom="-8.0dip" android:src="@drawable/ic_list_remove" android:scaleType="center" android:layout_alignTop="@id/chat_member_photo" android:layout_alignBottom="@id/chat_member_photo" android:layout_alignParentRight="true" />
+    <View android:id="@id/view1" android:background="@drawable/highlight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBottom="@id/chat_member_inv" android:layout_alignParentTop="true" />
+</RelativeLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="#ff2f323a" />
+                    <padding android:left="24.0dip" android:top="8.0dip" android:right="24.0dip" android:bottom="8.0dip" />
+                </shape>
+            </item>
+            <item android:left="-16.0dip" android:top="-8.0dip" android:right="-16.0dip" android:bottom="-8.0dip">
+                <shape>
+                    <solid android:color="#ffffffff" />
+                </shape>
+            </item>
+            <item android:left="-16.0dip" android:top="-7.0dip" android:right="-16.0dip" android:bottom="-8.0dip">
+                <shape>
+                    <solid android:color="#ff85d3ef" />
+                </shape>
+            </item>
+            <item android:drawable="@drawable/profile_info_divider" android:left="-6.0dip" android:top="-8.0dip" android:right="-6.0dip" />
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="#ff2f323a" />
+                    <padding android:left="24.0dip" android:top="8.0dip" android:right="24.0dip" android:bottom="8.0dip" />
+                </shape>
+            </item>
+            <item android:left="-16.0dip" android:top="-8.0dip" android:right="-16.0dip" android:bottom="-8.0dip">
+                <shape>
+                    <solid android:color="#ffffffff" />
+                </shape>
+            </item>
+            <item android:drawable="@drawable/profile_info_divider" android:left="-6.0dip" android:top="-8.0dip" android:right="-6.0dip" />
+        </layer-list>
+    </item>
+</selector>

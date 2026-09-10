@@ -1,0 +1,115 @@
+.class Lcom/vkontakte/android/fragments/BrowseUsersFragment$7;
+.super Landroid/widget/ArrayAdapter;
+.source "BrowseUsersFragment.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/vkontakte/android/fragments/BrowseUsersFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Landroid/widget/ArrayAdapter",
+        "<",
+        "Lcom/vkontakte/android/data/database/Country;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lcom/vkontakte/android/fragments/BrowseUsersFragment;
+
+
+# direct methods
+.method constructor <init>(Lcom/vkontakte/android/fragments/BrowseUsersFragment;Landroid/content/Context;I[Lcom/vkontakte/android/data/database/Country;)V
+    .locals 0
+    .param p2, "$anonymous0"    # Landroid/content/Context;
+    .param p3, "$anonymous1"    # I
+    .param p4, "$anonymous2"    # [Lcom/vkontakte/android/data/database/Country;
+
+    .prologue
+    .line 1
+    iput-object p1, p0, Lcom/vkontakte/android/fragments/BrowseUsersFragment$7;->this$0:Lcom/vkontakte/android/fragments/BrowseUsersFragment;
+
+    .line 332
+    invoke-direct {p0, p2, p3, p4}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    .locals 3
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
+
+    .prologue
+    .line 338
+    invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 339
+    .local v0, "v":Landroid/view/View;
+    instance-of v1, v0, Landroid/widget/TextView;
+
+    if-eqz v1, :cond_0
+
+    move-object v1, v0
+
+    .line 340
+    check-cast v1, Landroid/widget/TextView;
+
+    invoke-virtual {p0, p1}, Lcom/vkontakte/android/fragments/BrowseUsersFragment$7;->getItem(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/vkontakte/android/data/database/Country;
+
+    iget-boolean v2, v2, Lcom/vkontakte/android/data/database/Country;->important:Z
+
+    if-eqz v2, :cond_1
+
+    sget-object v2, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
+
+    :goto_0
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
+
+    .line 342
+    :cond_0
+    return-object v0
+
+    .line 340
+    :cond_1
+    sget-object v2, Landroid/graphics/Typeface;->DEFAULT:Landroid/graphics/Typeface;
+
+    goto :goto_0
+.end method
+
+.method public getItemId(I)J
+    .locals 2
+    .param p1, "pos"    # I
+
+    .prologue
+    .line 334
+    invoke-virtual {p0, p1}, Lcom/vkontakte/android/fragments/BrowseUsersFragment$7;->getItem(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/vkontakte/android/data/database/Country;
+
+    iget v0, v0, Lcom/vkontakte/android/data/database/Country;->id:I
+
+    int-to-long v0, v0
+
+    return-wide v0
+.end method
