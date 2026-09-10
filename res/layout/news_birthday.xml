@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.vkontakte.android.NewsItemView android:background="#ffedf1f6" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:vk="http://schemas.android.com/apk/res/com.vkontakte.android">
+    <TextView android:textSize="14.0dip" android:textColor="@color/main_text" android:textColorHighlight="#802b587a" android:textColorLink="#ff2b587a" android:linksClickable="false" android:id="@id/post_view" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginTop="3.0dip" android:layout_marginRight="8.0dip" android:text="TextView" />
+    <com.vkontakte.android.ui.FlowLayout android:id="@id/post_attach_container" android:visibility="gone" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="1.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="5.0dip" android:layout_below="@id/post_view" />
+</com.vkontakte.android.NewsItemView>

@@ -1,0 +1,375 @@
+.class public Lcom/vkontakte/android/api/LikesGetList;
+.super Lcom/vkontakte/android/APIRequest;
+.source "LikesGetList.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/vkontakte/android/api/LikesGetList$Callback;
+    }
+.end annotation
+
+
+# static fields
+.field private static CODE:Ljava/lang/String;
+
+
+# instance fields
+.field callback:Lcom/vkontakte/android/api/LikesGetList$Callback;
+
+.field private types:[Ljava/lang/String;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .prologue
+    .line 13
+    const-string v0, "var l=API.likes.getList({type:\"%1$s\",owner_id:%2$d,item_id:%3$d,offset:%4$d,count:%5$d});return {count:l.count,users:API.users.get({uids:l.users,fields:\"online,%6$s\"})};"
+
+    sput-object v0, Lcom/vkontakte/android/api/LikesGetList;->CODE:Ljava/lang/String;
+
+    .line 12
+    return-void
+.end method
+
+.method public constructor <init>(IIIII)V
+    .locals 7
+    .param p1, "type"    # I
+    .param p2, "oid"    # I
+    .param p3, "itemID"    # I
+    .param p4, "offset"    # I
+    .param p5, "count"    # I
+
+    .prologue
+    const/4 v6, 0x2
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    .line 20
+    const-string v0, "execute"
+
+    invoke-direct {p0, v0}, Lcom/vkontakte/android/APIRequest;-><init>(Ljava/lang/String;)V
+
+    .line 15
+    new-array v0, v6, [Ljava/lang/String;
+
+    const-string v1, "post"
+
+    aput-object v1, v0, v4
+
+    const-string v1, "photo"
+
+    aput-object v1, v0, v5
+
+    iput-object v0, p0, Lcom/vkontakte/android/api/LikesGetList;->types:[Ljava/lang/String;
+
+    .line 21
+    const-string v1, "code"
+
+    sget-object v2, Lcom/vkontakte/android/api/LikesGetList;->CODE:Ljava/lang/String;
+
+    const/4 v0, 0x6
+
+    new-array v3, v0, [Ljava/lang/Object;
+
+    iget-object v0, p0, Lcom/vkontakte/android/api/LikesGetList;->types:[Ljava/lang/String;
+
+    aget-object v0, v0, p1
+
+    aput-object v0, v3, v4
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    aput-object v0, v3, v5
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    aput-object v0, v3, v6
+
+    const/4 v0, 0x3
+
+    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v0
+
+    const/4 v0, 0x4
+
+    invoke-static {p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v0
+
+    const/4 v4, 0x5
+
+    sget v0, Lcom/vkontakte/android/Global;->displayDensity:F
+
+    const/high16 v5, 0x3f800000    # 1.0f
+
+    cmpl-float v0, v0, v5
+
+    if-lez v0, :cond_0
+
+    const-string v0, "photo_medium_rec"
+
+    :goto_0
+    aput-object v0, v3, v4
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v1, v0}, Lcom/vkontakte/android/api/LikesGetList;->param(Ljava/lang/String;Ljava/lang/String;)Lcom/vkontakte/android/APIRequest;
+
+    .line 23
+    new-instance v0, Lcom/vkontakte/android/api/LikesGetList$1;
+
+    invoke-direct {v0, p0}, Lcom/vkontakte/android/api/LikesGetList$1;-><init>(Lcom/vkontakte/android/api/LikesGetList;)V
+
+    invoke-virtual {p0, v0}, Lcom/vkontakte/android/api/LikesGetList;->handler(Lcom/vkontakte/android/APIRequest$APIHandler;)Lcom/vkontakte/android/APIRequest;
+
+    .line 33
+    return-void
+
+    .line 21
+    :cond_0
+    const-string v0, "photo_rec"
+
+    goto :goto_0
+.end method
+
+
+# virtual methods
+.method public parse(Lorg/json/JSONObject;)V
+    .locals 8
+    .param p1, "o"    # Lorg/json/JSONObject;
+
+    .prologue
+    const/4 v6, 0x1
+
+    .line 37
+    :try_start_0
+    new-instance v4, Ljava/util/Vector;
+
+    invoke-direct {v4}, Ljava/util/Vector;-><init>()V
+
+    .line 38
+    .local v4, "r":Ljava/util/Vector;, "Ljava/util/Vector<Lcom/vkontakte/android/UserProfile;>;"
+    const-string v5, "response"
+
+    invoke-virtual {p1, v5}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v5
+
+    const-string v7, "users"
+
+    invoke-virtual {v5, v7}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v0
+
+    .line 39
+    .local v0, "a":Lorg/json/JSONArray;
+    if-eqz v0, :cond_0
+
+    .line 40
+    const/4 v1, 0x0
+
+    .local v1, "i":I
+    :goto_0
+    invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
+
+    move-result v5
+
+    if-lt v1, v5, :cond_2
+
+    .line 52
+    .end local v1    # "i":I
+    :cond_0
+    iget-object v5, p0, Lcom/vkontakte/android/api/LikesGetList;->callback:Lcom/vkontakte/android/api/LikesGetList$Callback;
+
+    if-eqz v5, :cond_1
+
+    .line 53
+    iget-object v5, p0, Lcom/vkontakte/android/api/LikesGetList;->callback:Lcom/vkontakte/android/api/LikesGetList$Callback;
+
+    const-string v6, "response"
+
+    invoke-virtual {p1, v6}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v6
+
+    const-string v7, "count"
+
+    invoke-virtual {v6, v7}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-interface {v5, v6, v4}, Lcom/vkontakte/android/api/LikesGetList$Callback;->success(ILjava/util/Vector;)V
+
+    .line 56
+    .end local v0    # "a":Lorg/json/JSONArray;
+    .end local v4    # "r":Ljava/util/Vector;, "Ljava/util/Vector<Lcom/vkontakte/android/UserProfile;>;"
+    :cond_1
+    :goto_1
+    return-void
+
+    .line 41
+    .restart local v0    # "a":Lorg/json/JSONArray;
+    .restart local v1    # "i":I
+    .restart local v4    # "r":Ljava/util/Vector;, "Ljava/util/Vector<Lcom/vkontakte/android/UserProfile;>;"
+    :cond_2
+    invoke-virtual {v0, v1}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
+
+    move-result-object v2
+
+    .line 42
+    .local v2, "jp":Lorg/json/JSONObject;
+    new-instance v3, Lcom/vkontakte/android/UserProfile;
+
+    invoke-direct {v3}, Lcom/vkontakte/android/UserProfile;-><init>()V
+
+    .line 43
+    .local v3, "p":Lcom/vkontakte/android/UserProfile;
+    const-string v5, "first_name"
+
+    invoke-virtual {v2, v5}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    iput-object v5, v3, Lcom/vkontakte/android/UserProfile;->firstName:Ljava/lang/String;
+
+    .line 44
+    const-string v5, "last_name"
+
+    invoke-virtual {v2, v5}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    iput-object v5, v3, Lcom/vkontakte/android/UserProfile;->lastName:Ljava/lang/String;
+
+    .line 45
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    iget-object v7, v3, Lcom/vkontakte/android/UserProfile;->firstName:Ljava/lang/String;
+
+    invoke-static {v7}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-direct {v5, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string v7, " "
+
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v7, v3, Lcom/vkontakte/android/UserProfile;->lastName:Ljava/lang/String;
+
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iput-object v5, v3, Lcom/vkontakte/android/UserProfile;->fullName:Ljava/lang/String;
+
+    .line 46
+    sget v5, Lcom/vkontakte/android/Global;->displayDensity:F
+
+    const/high16 v7, 0x3f800000    # 1.0f
+
+    cmpl-float v5, v5, v7
+
+    if-lez v5, :cond_3
+
+    const-string v5, "photo_medium_rec"
+
+    :goto_2
+    invoke-virtual {v2, v5}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    iput-object v5, v3, Lcom/vkontakte/android/UserProfile;->photo:Ljava/lang/String;
+
+    .line 47
+    const-string v5, "uid"
+
+    invoke-virtual {v2, v5}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    iput v5, v3, Lcom/vkontakte/android/UserProfile;->uid:I
+
+    .line 48
+    const-string v5, "online"
+
+    invoke-virtual {v2, v5}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    if-ne v5, v6, :cond_4
+
+    move v5, v6
+
+    :goto_3
+    iput-boolean v5, v3, Lcom/vkontakte/android/UserProfile;->online:Z
+
+    .line 49
+    invoke-virtual {v4, v3}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    .line 40
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    .line 46
+    :cond_3
+    const-string v5, "photo_rec"
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_2
+
+    .line 48
+    :cond_4
+    const/4 v5, 0x0
+
+    goto :goto_3
+
+    .line 54
+    .end local v0    # "a":Lorg/json/JSONArray;
+    .end local v1    # "i":I
+    .end local v2    # "jp":Lorg/json/JSONObject;
+    .end local v3    # "p":Lcom/vkontakte/android/UserProfile;
+    .end local v4    # "r":Ljava/util/Vector;, "Ljava/util/Vector<Lcom/vkontakte/android/UserProfile;>;"
+    :catch_0
+    move-exception v5
+
+    goto :goto_1
+.end method
+
+.method public setCallback(Lcom/vkontakte/android/api/LikesGetList$Callback;)Lcom/vkontakte/android/APIRequest;
+    .locals 0
+    .param p1, "cb"    # Lcom/vkontakte/android/api/LikesGetList$Callback;
+
+    .prologue
+    .line 59
+    iput-object p1, p0, Lcom/vkontakte/android/api/LikesGetList;->callback:Lcom/vkontakte/android/api/LikesGetList$Callback;
+
+    .line 60
+    return-object p0
+.end method

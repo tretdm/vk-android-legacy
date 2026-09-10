@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.vkontakte.android.NoteAttachView android:gravity="center_vertical" android:background="@drawable/highlight_first" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/linearLayout1" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textColor="@color/hint" android:id="@id/textView1" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/attach_note" />
+        <TextView android:textColor="@color/main_text" android:ellipsize="marquee" android:id="@id/att_note_title" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="TextView" android:singleLine="true" />
+    </LinearLayout>
+    <FrameLayout android:id="@id/frameLayout1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="3.0dip">
+        <ProgressBar android:id="@id/att_note_progress" android:visibility="gone" android:layout_width="25.0dip" android:layout_height="25.0dip" style="@android:style/Widget.ProgressBar.Inverse" />
+    </FrameLayout>
+</com.vkontakte.android.NoteAttachView>

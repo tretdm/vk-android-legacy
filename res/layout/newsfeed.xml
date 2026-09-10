@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:id="@id/news_root" android:background="#ffffffff" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="0.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.vkontakte.android.UpdatableScrollView android:scrollbarAlwaysDrawVerticalTrack="false" android:id="@id/news_scrollview" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true">
+        <LinearLayout android:orientation="vertical" android:id="@id/news_scroll" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center_vertical" android:id="@id/news_top_bar" android:background="@drawable/topnav_panel" android:paddingLeft="-2.0px" android:layout_width="fill_parent" android:layout_height="49.0dip" android:layout_margin="0.0dip">
+                <ImageButton android:id="@id/news_add_photo" android:background="@drawable/silver_btn" android:layout_width="57.0dip" android:layout_height="44.5dip" android:layout_marginBottom="-2.0dip" android:src="@drawable/ic_add_photo" />
+                <EditText android:textColorHint="#77000000" android:layout_gravity="center_vertical" android:id="@id/new_status_edit" android:background="@drawable/textfield_default2_b" android:focusableInTouchMode="false" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginBottom="-2.0dip" android:hint="@string/whats_new" android:editable="false" android:layout_weight="1.0" />
+                <ImageButton android:id="@id/news_add_place" android:background="@drawable/silver_btn" android:layout_width="57.0dip" android:layout_height="44.5dip" android:layout_marginBottom="-2.0dip" android:src="@drawable/ic_add_place" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/news_container" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </com.vkontakte.android.UpdatableScrollView>
+    <ProgressBar android:layout_gravity="center" android:id="@id/news_progress" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</FrameLayout>

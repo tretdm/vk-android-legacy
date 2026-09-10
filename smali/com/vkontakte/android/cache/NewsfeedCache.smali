@@ -1,0 +1,1030 @@
+.class public Lcom/vkontakte/android/cache/NewsfeedCache;
+.super Ljava/lang/Object;
+.source "NewsfeedCache.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    }
+.end annotation
+
+
+# static fields
+.field private static semaphore:Ljava/util/concurrent/Semaphore;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    .prologue
+    .line 37
+    new-instance v0, Ljava/util/concurrent/Semaphore;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1}, Ljava/util/concurrent/Semaphore;-><init>(I)V
+
+    sput-object v0, Lcom/vkontakte/android/cache/NewsfeedCache;->semaphore:Ljava/util/concurrent/Semaphore;
+
+    .line 19
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    .prologue
+    .line 19
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method static synthetic access$0()Ljava/util/concurrent/Semaphore;
+    .locals 1
+
+    .prologue
+    .line 37
+    sget-object v0, Lcom/vkontakte/android/cache/NewsfeedCache;->semaphore:Ljava/util/concurrent/Semaphore;
+
+    return-object v0
+.end method
+
+.method public static add(Lcom/vkontakte/android/NewsEntry;Landroid/content/Context;)V
+    .locals 5
+    .param p0, "entry"    # Lcom/vkontakte/android/NewsEntry;
+    .param p1, "context"    # Landroid/content/Context;
+
+    .prologue
+    .line 129
+    :try_start_0
+    new-instance v1, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+
+    invoke-direct {v1, p1}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;-><init>(Landroid/content/Context;)V
+
+    .line 130
+    .local v1, "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    invoke-virtual {v1}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+
+    move-result-object v0
+
+    .line 132
+    .local v0, "db":Landroid/database/sqlite/SQLiteDatabase;
+    :try_start_1
+    const-string v3, "news"
+
+    invoke-virtual {p0, v0, v3}, Lcom/vkontakte/android/NewsEntry;->writeToSQLite(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    .line 136
+    :goto_0
+    :try_start_2
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+
+    .line 137
+    invoke-virtual {v1}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;->close()V
+
+    .line 140
+    .end local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .end local v1    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    :goto_1
+    return-void
+
+    .line 133
+    .restart local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .restart local v1    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    :catch_0
+    move-exception v2
+
+    .line 134
+    .local v2, "x":Ljava/lang/Exception;
+    const-string v3, "vk"
+
+    const-string v4, "Error writing news cache DB!"
+
+    invoke-static {v3, v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+
+    goto :goto_0
+
+    .line 138
+    .end local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .end local v1    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    .end local v2    # "x":Ljava/lang/Exception;
+    :catch_1
+    move-exception v3
+
+    goto :goto_1
+.end method
+
+.method public static get(Landroid/content/Context;)[Lcom/vkontakte/android/NewsEntry;
+    .locals 15
+    .param p0, "context"    # Landroid/content/Context;
+
+    .prologue
+    const/4 v14, 0x0
+
+    .line 41
+    :try_start_0
+    sget-object v1, Lcom/vkontakte/android/cache/NewsfeedCache;->semaphore:Ljava/util/concurrent/Semaphore;
+
+    invoke-virtual {v1}, Ljava/util/concurrent/Semaphore;->acquire()V
+
+    .line 42
+    new-instance v10, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+
+    invoke-direct {v10, p0}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;-><init>(Landroid/content/Context;)V
+
+    .line 43
+    .local v10, "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    invoke-virtual {v10}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+
+    move-result-object v0
+
+    .line 44
+    .local v0, "db":Landroid/database/sqlite/SQLiteDatabase;
+    const/4 v1, 0x0
+
+    new-array v12, v1, [Lcom/vkontakte/android/NewsEntry;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+
+    .line 46
+    .local v12, "result":[Lcom/vkontakte/android/NewsEntry;
+    :try_start_1
+    const-string v1, "news"
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const-string v7, "`time` desc"
+
+    invoke-virtual/range {v0 .. v7}, Landroid/database/sqlite/SQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v8
+
+    .line 47
+    .local v8, "cursor":Landroid/database/Cursor;
+    if-eqz v8, :cond_1
+
+    invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
+
+    move-result v1
+
+    if-lez v1, :cond_1
+
+    .line 48
+    invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
+
+    move-result v1
+
+    new-array v12, v1, [Lcom/vkontakte/android/NewsEntry;
+
+    .line 49
+    const/4 v11, 0x0
+
+    .line 50
+    .local v11, "i":I
+    invoke-interface {v8}, Landroid/database/Cursor;->moveToFirst()Z
+
+    .line 52
+    :cond_0
+    new-instance v9, Lcom/vkontakte/android/NewsEntry;
+
+    invoke-direct {v9}, Lcom/vkontakte/android/NewsEntry;-><init>()V
+
+    .line 53
+    .local v9, "entry":Lcom/vkontakte/android/NewsEntry;
+    invoke-virtual {v9, v8, p0}, Lcom/vkontakte/android/NewsEntry;->readFromSQLite(Landroid/database/Cursor;Landroid/content/Context;)V
+
+    .line 54
+    aput-object v9, v12, v11
+
+    .line 55
+    add-int/lit8 v11, v11, 0x1
+
+    .line 56
+    invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result v1
+
+    .line 51
+    if-nez v1, :cond_0
+
+    .line 61
+    .end local v8    # "cursor":Landroid/database/Cursor;
+    .end local v9    # "entry":Lcom/vkontakte/android/NewsEntry;
+    .end local v11    # "i":I
+    :cond_1
+    :goto_0
+    :try_start_2
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+
+    .line 62
+    invoke-virtual {v10}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;->close()V
+
+    .line 63
+    sget-object v1, Lcom/vkontakte/android/cache/NewsfeedCache;->semaphore:Ljava/util/concurrent/Semaphore;
+
+    invoke-virtual {v1}, Ljava/util/concurrent/Semaphore;->release()V
+
+    .line 67
+    .end local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .end local v10    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    .end local v12    # "result":[Lcom/vkontakte/android/NewsEntry;
+    :goto_1
+    return-object v12
+
+    .line 58
+    .restart local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .restart local v10    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    .restart local v12    # "result":[Lcom/vkontakte/android/NewsEntry;
+    :catch_0
+    move-exception v13
+
+    .line 59
+    .local v13, "x":Ljava/lang/Exception;
+    const-string v1, "vk"
+
+    const-string v2, "Error reading news cache DB!"
+
+    invoke-static {v1, v2, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+
+    goto :goto_0
+
+    .line 65
+    .end local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .end local v10    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    .end local v12    # "result":[Lcom/vkontakte/android/NewsEntry;
+    .end local v13    # "x":Ljava/lang/Exception;
+    :catch_1
+    move-exception v1
+
+    .line 66
+    sget-object v1, Lcom/vkontakte/android/cache/NewsfeedCache;->semaphore:Ljava/util/concurrent/Semaphore;
+
+    invoke-virtual {v1}, Ljava/util/concurrent/Semaphore;->release()V
+
+    move-object v12, v14
+
+    .line 67
+    goto :goto_1
+.end method
+
+.method public static getPostsOnly(Landroid/content/Context;)[Lcom/vkontakte/android/NewsEntry;
+    .locals 15
+    .param p0, "context"    # Landroid/content/Context;
+
+    .prologue
+    const/4 v14, 0x0
+
+    .line 73
+    :try_start_0
+    new-instance v10, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+
+    invoke-direct {v10, p0}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;-><init>(Landroid/content/Context;)V
+
+    .line 74
+    .local v10, "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    invoke-virtual {v10}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+
+    move-result-object v0
+
+    .line 75
+    .local v0, "db":Landroid/database/sqlite/SQLiteDatabase;
+    const/4 v1, 0x0
+
+    new-array v12, v1, [Lcom/vkontakte/android/NewsEntry;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+
+    .line 77
+    .local v12, "result":[Lcom/vkontakte/android/NewsEntry;
+    :try_start_1
+    const-string v1, "news"
+
+    const/4 v2, 0x0
+
+    const-string v3, "`flags`<16777216"
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const-string v7, "`time` desc"
+
+    invoke-virtual/range {v0 .. v7}, Landroid/database/sqlite/SQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v8
+
+    .line 78
+    .local v8, "cursor":Landroid/database/Cursor;
+    if-eqz v8, :cond_1
+
+    invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
+
+    move-result v1
+
+    if-lez v1, :cond_1
+
+    .line 79
+    invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
+
+    move-result v1
+
+    new-array v12, v1, [Lcom/vkontakte/android/NewsEntry;
+
+    .line 80
+    const/4 v11, 0x0
+
+    .line 81
+    .local v11, "i":I
+    invoke-interface {v8}, Landroid/database/Cursor;->moveToFirst()Z
+
+    .line 83
+    :cond_0
+    new-instance v9, Lcom/vkontakte/android/NewsEntry;
+
+    invoke-direct {v9}, Lcom/vkontakte/android/NewsEntry;-><init>()V
+
+    .line 84
+    .local v9, "entry":Lcom/vkontakte/android/NewsEntry;
+    invoke-virtual {v9, v8, p0}, Lcom/vkontakte/android/NewsEntry;->readFromSQLite(Landroid/database/Cursor;Landroid/content/Context;)V
+
+    .line 85
+    aput-object v9, v12, v11
+
+    .line 86
+    add-int/lit8 v11, v11, 0x1
+
+    .line 87
+    invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result v1
+
+    .line 82
+    if-nez v1, :cond_0
+
+    .line 92
+    .end local v8    # "cursor":Landroid/database/Cursor;
+    .end local v9    # "entry":Lcom/vkontakte/android/NewsEntry;
+    .end local v11    # "i":I
+    :cond_1
+    :goto_0
+    :try_start_2
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+
+    .line 93
+    invoke-virtual {v10}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;->close()V
+
+    .line 98
+    .end local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .end local v10    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    .end local v12    # "result":[Lcom/vkontakte/android/NewsEntry;
+    :goto_1
+    return-object v12
+
+    .line 89
+    .restart local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .restart local v10    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    .restart local v12    # "result":[Lcom/vkontakte/android/NewsEntry;
+    :catch_0
+    move-exception v13
+
+    .line 90
+    .local v13, "x":Ljava/lang/Exception;
+    const-string v1, "vk"
+
+    const-string v2, "Error reading news cache DB!"
+
+    invoke-static {v1, v2, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+
+    goto :goto_0
+
+    .line 96
+    .end local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .end local v10    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    .end local v12    # "result":[Lcom/vkontakte/android/NewsEntry;
+    .end local v13    # "x":Ljava/lang/Exception;
+    :catch_1
+    move-exception v1
+
+    move-object v12, v14
+
+    .line 98
+    goto :goto_1
+.end method
+
+.method public static getUpdateTime(Landroid/content/Context;)I
+    .locals 7
+    .param p0, "context"    # Landroid/content/Context;
+
+    .prologue
+    .line 215
+    :try_start_0
+    new-instance v0, Ljava/io/File;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
+
+    move-result-object v3
+
+    const-string v4, "newsfeed_last_update"
+
+    invoke-direct {v0, v3, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .line 216
+    .local v0, "f":Ljava/io/File;
+    new-instance v1, Ljava/io/DataInputStream;
+
+    new-instance v3, Ljava/io/FileInputStream;
+
+    invoke-direct {v3, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
+    invoke-direct {v1, v3}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
+
+    .line 217
+    .local v1, "in":Ljava/io/DataInputStream;
+    invoke-virtual {v1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v2
+
+    .line 218
+    .local v2, "t":I
+    invoke-virtual {v1}, Ljava/io/DataInputStream;->close()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 221
+    .end local v0    # "f":Ljava/io/File;
+    .end local v1    # "in":Ljava/io/DataInputStream;
+    .end local v2    # "t":I
+    :goto_0
+    return v2
+
+    .line 220
+    :catch_0
+    move-exception v3
+
+    .line 221
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v3
+
+    const-wide/16 v5, 0x3e8
+
+    div-long/2addr v3, v5
+
+    long-to-int v2, v3
+
+    goto :goto_0
+.end method
+
+.method public static hasEntries(Landroid/content/Context;)Z
+    .locals 8
+    .param p0, "context"    # Landroid/content/Context;
+
+    .prologue
+    const/4 v5, 0x0
+
+    .line 196
+    :try_start_0
+    new-instance v2, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+
+    invoke-direct {v2, p0}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;-><init>(Landroid/content/Context;)V
+
+    .line 197
+    .local v2, "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    invoke-virtual {v2}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+
+    move-result-object v1
+
+    .line 198
+    .local v1, "db":Landroid/database/sqlite/SQLiteDatabase;
+    const-string v6, "SELECT COUNT(*) FROM `news`"
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v1, v6, v7}, Landroid/database/sqlite/SQLiteDatabase;->rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v0
+
+    .line 199
+    .local v0, "cursor":Landroid/database/Cursor;
+    invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
+
+    .line 200
+    const/4 v6, 0x0
+
+    invoke-interface {v0, v6}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v6
+
+    if-lez v6, :cond_0
+
+    const/4 v3, 0x1
+
+    .line 201
+    .local v3, "result":Z
+    :goto_0
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    .line 202
+    invoke-virtual {v1}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+
+    .line 203
+    invoke-virtual {v2}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;->close()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 210
+    .end local v0    # "cursor":Landroid/database/Cursor;
+    .end local v1    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .end local v2    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    .end local v3    # "result":Z
+    :goto_1
+    return v3
+
+    .restart local v0    # "cursor":Landroid/database/Cursor;
+    .restart local v1    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .restart local v2    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    :cond_0
+    move v3, v5
+
+    .line 200
+    goto :goto_0
+
+    .line 206
+    .end local v0    # "cursor":Landroid/database/Cursor;
+    .end local v1    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .end local v2    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    :catch_0
+    move-exception v4
+
+    .line 207
+    .local v4, "x":Ljava/lang/Exception;
+    const-string v6, "vk"
+
+    const-string v7, "Error reading news cache DB!"
+
+    invoke-static {v6, v7, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    move v3, v5
+
+    .line 210
+    goto :goto_1
+.end method
+
+.method public static remove(IILandroid/content/Context;)V
+    .locals 6
+    .param p0, "oid"    # I
+    .param p1, "pid"    # I
+    .param p2, "context"    # Landroid/content/Context;
+
+    .prologue
+    .line 144
+    :try_start_0
+    sget-object v3, Lcom/vkontakte/android/cache/NewsfeedCache;->semaphore:Ljava/util/concurrent/Semaphore;
+
+    invoke-virtual {v3}, Ljava/util/concurrent/Semaphore;->acquire()V
+
+    .line 145
+    new-instance v1, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+
+    invoke-direct {v1, p2}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;-><init>(Landroid/content/Context;)V
+
+    .line 146
+    .local v1, "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    invoke-virtual {v1}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+
+    move-result-object v0
+
+    .line 148
+    .local v0, "db":Landroid/database/sqlite/SQLiteDatabase;
+    :try_start_1
+    const-string v3, "news"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    const-string v5, "`pid`="
+
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, " AND `uid`="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v0, v3, v4, v5}, Landroid/database/sqlite/SQLiteDatabase;->delete(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    .line 152
+    :goto_0
+    :try_start_2
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+
+    .line 153
+    invoke-virtual {v1}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;->close()V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+
+    .line 155
+    .end local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .end local v1    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    :goto_1
+    sget-object v3, Lcom/vkontakte/android/cache/NewsfeedCache;->semaphore:Ljava/util/concurrent/Semaphore;
+
+    invoke-virtual {v3}, Ljava/util/concurrent/Semaphore;->release()V
+
+    .line 156
+    return-void
+
+    .line 149
+    .restart local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .restart local v1    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    :catch_0
+    move-exception v2
+
+    .line 150
+    .local v2, "x":Ljava/lang/Exception;
+    :try_start_3
+    const-string v3, "vk"
+
+    const-string v4, "Error writing news cache DB!"
+
+    invoke-static {v3, v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+
+    goto :goto_0
+
+    .line 154
+    .end local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .end local v1    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    .end local v2    # "x":Ljava/lang/Exception;
+    :catch_1
+    move-exception v3
+
+    goto :goto_1
+.end method
+
+.method public static replace([Lcom/vkontakte/android/NewsEntry;Landroid/content/Context;)V
+    .locals 2
+    .param p0, "items"    # [Lcom/vkontakte/android/NewsEntry;
+    .param p1, "context"    # Landroid/content/Context;
+
+    .prologue
+    .line 102
+    new-instance v0, Ljava/lang/Thread;
+
+    new-instance v1, Lcom/vkontakte/android/cache/NewsfeedCache$1;
+
+    invoke-direct {v1, p1, p0}, Lcom/vkontakte/android/cache/NewsfeedCache$1;-><init>(Landroid/content/Context;[Lcom/vkontakte/android/NewsEntry;)V
+
+    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+
+    .line 123
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+
+    .line 124
+    return-void
+.end method
+
+.method public static setUpdateTime(Landroid/content/Context;I)V
+    .locals 4
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "time"    # I
+
+    .prologue
+    .line 226
+    :try_start_0
+    new-instance v0, Ljava/io/File;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
+
+    move-result-object v2
+
+    const-string v3, "newsfeed_last_update"
+
+    invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .line 227
+    .local v0, "f":Ljava/io/File;
+    invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
+
+    .line 228
+    new-instance v1, Ljava/io/DataOutputStream;
+
+    new-instance v2, Ljava/io/FileOutputStream;
+
+    invoke-direct {v2, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+
+    invoke-direct {v1, v2}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
+
+    .line 229
+    .local v1, "out":Ljava/io/DataOutputStream;
+    invoke-virtual {v1, p1}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 230
+    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 232
+    .end local v0    # "f":Ljava/io/File;
+    .end local v1    # "out":Ljava/io/DataOutputStream;
+    :goto_0
+    return-void
+
+    .line 231
+    :catch_0
+    move-exception v2
+
+    goto :goto_0
+.end method
+
+.method public static update(Landroid/content/Context;IIIIZZ)V
+    .locals 13
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "oid"    # I
+    .param p2, "pid"    # I
+    .param p3, "likes"    # I
+    .param p4, "comments"    # I
+    .param p5, "liked"    # Z
+    .param p6, "retweeted"    # Z
+
+    .prologue
+    .line 161
+    :try_start_0
+    new-instance v10, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+
+    invoke-direct {v10, p0}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;-><init>(Landroid/content/Context;)V
+
+    .line 162
+    .local v10, "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    invoke-virtual {v10}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    .line 164
+    .local v0, "db":Landroid/database/sqlite/SQLiteDatabase;
+    :try_start_1
+    const-string v1, "news"
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    const-string v4, "flags"
+
+    aput-object v4, v2, v3
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    const-string v4, "`pid`="
+
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, " AND `uid`="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    invoke-virtual/range {v0 .. v7}, Landroid/database/sqlite/SQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v8
+
+    .line 165
+    .local v8, "cursor":Landroid/database/Cursor;
+    if-eqz v8, :cond_0
+
+    invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 191
+    .end local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .end local v8    # "cursor":Landroid/database/Cursor;
+    .end local v10    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 166
+    .restart local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .restart local v8    # "cursor":Landroid/database/Cursor;
+    .restart local v10    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    :cond_1
+    invoke-interface {v8}, Landroid/database/Cursor;->moveToFirst()Z
+
+    .line 168
+    new-instance v11, Landroid/content/ContentValues;
+
+    invoke-direct {v11}, Landroid/content/ContentValues;-><init>()V
+
+    .line 169
+    .local v11, "values":Landroid/content/ContentValues;
+    const-string v1, "likes"
+
+    invoke-static/range {p3 .. p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v11, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    .line 170
+    const-string v1, "comments"
+
+    invoke-static/range {p4 .. p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v11, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    .line 173
+    const/4 v1, 0x0
+
+    invoke-interface {v8, v1}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v9
+
+    .line 175
+    .local v9, "flags":I
+    if-eqz p5, :cond_2
+
+    or-int/lit8 v9, v9, 0x8
+
+    .line 178
+    :goto_1
+    if-eqz p6, :cond_3
+
+    or-int/lit8 v9, v9, 0x4
+
+    .line 181
+    :goto_2
+    const-string v1, "flags"
+
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v11, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    .line 183
+    const-string v1, "news"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    const-string v3, "`pid`="
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " AND `uid`="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v11, v2, v3}, Landroid/database/sqlite/SQLiteDatabase;->update(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    .line 187
+    .end local v8    # "cursor":Landroid/database/Cursor;
+    .end local v9    # "flags":I
+    .end local v11    # "values":Landroid/content/ContentValues;
+    :goto_3
+    :try_start_2
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+
+    .line 188
+    invoke-virtual {v10}, Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;->close()V
+
+    goto :goto_0
+
+    .line 189
+    .end local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .end local v10    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    :catch_0
+    move-exception v1
+
+    goto :goto_0
+
+    .line 176
+    .restart local v0    # "db":Landroid/database/sqlite/SQLiteDatabase;
+    .restart local v8    # "cursor":Landroid/database/Cursor;
+    .restart local v9    # "flags":I
+    .restart local v10    # "helper":Lcom/vkontakte/android/cache/NewsfeedCache$CacheOpenHelper;
+    .restart local v11    # "values":Landroid/content/ContentValues;
+    :cond_2
+    and-int/lit8 v9, v9, -0x9
+
+    goto :goto_1
+
+    .line 179
+    :cond_3
+    and-int/lit8 v9, v9, -0x5
+
+    goto :goto_2
+
+    .line 184
+    .end local v8    # "cursor":Landroid/database/Cursor;
+    .end local v9    # "flags":I
+    .end local v11    # "values":Landroid/content/ContentValues;
+    :catch_1
+    move-exception v12
+
+    .line 185
+    .local v12, "x":Ljava/lang/Exception;
+    const-string v1, "vk"
+
+    const-string v2, "Error writing news cache DB!"
+
+    invoke-static {v1, v2, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+
+    goto :goto_3
+.end method

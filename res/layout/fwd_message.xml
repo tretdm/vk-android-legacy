@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@drawable/fwd_msg_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/fmsg_userphoto" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_margin="5.0dip" android:src="@drawable/photo_loading" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <TextView android:textStyle="bold" android:textColor="#ff2b587a" android:ellipsize="marquee" android:id="@id/fmsg_username" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="-3.0dip" android:text="TextView" android:singleLine="true" android:layout_toRightOf="@id/fmsg_userphoto" android:layout_alignTop="@id/fmsg_userphoto" />
+    <TextView android:textSize="12.0dip" android:textColor="@color/hint" android:id="@id/fmsg_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="TextView" android:layout_below="@id/fmsg_username" android:layout_alignLeft="@id/fmsg_username" />
+    <TextView android:textColor="@color/main_text" android:id="@id/fmsg_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-3.0dip" android:text="TextView" android:layout_below="@id/fmsg_userphoto" android:layout_alignLeft="@id/fmsg_userphoto" />
+    <com.vkontakte.android.ui.FlowLayout android:orientation="vertical" android:id="@id/fmsg_attachments" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/fmsg_text" android:layout_alignLeft="@id/fmsg_text" />
+</RelativeLayout>

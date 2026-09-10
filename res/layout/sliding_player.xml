@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.vkontakte.android.ui.SlidingDrawer android:layout_width="fill_parent" android:layout_height="fill_parent" my:orientation="horizontal" my:handle="@id/aplayer_sliding_handle" my:content="@id/aplayer_sliding_content" my:topOffset="-47.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:my="http://schemas.android.com/apk/res/com.vkontakte.android">
+    <ImageView android:id="@id/aplayer_sliding_handle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_now_playing" />
+    <com.vkontakte.android.AudioPlayerView android:id="@id/aplayer_sliding_content" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</com.vkontakte.android.ui.SlidingDrawer>

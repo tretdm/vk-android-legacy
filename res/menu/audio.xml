@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/ic_menu_save" android:id="@id/audio_cache" android:title="@string/save" />
+    <item android:icon="@drawable/ic_menu_start_conversation" android:id="@id/audio_lyrics" android:title="@string/audio_lyrics" />
+    <item android:icon="@drawable/ic_menu_delete" android:id="@id/audio_uncache" android:title="@string/uncache" />
+    <item android:icon="@drawable/ic_menu_search" android:id="@id/audio_search_artist" android:title="@string/audio_search_artist" />
+    <item android:icon="@drawable/ic_menu_add" android:id="@id/audio_add" android:title="@string/add" />
+    <item android:icon="@drawable/ic_menu_delete" android:id="@id/audio_delete" android:title="@string/delete" />
+    <item android:icon="@drawable/ic_menu_preferences" android:id="@id/main_menu_settings" android:title="@string/menu_settings" />
+    <item android:icon="@drawable/ic_menu_info_details" android:id="@id/main_menu_about" android:title="@string/menu_about" />
+    <item android:icon="@drawable/ic_menu_close_clear_cancel" android:id="@id/main_menu_exit" android:title="@string/menu_exit" />
+</menu>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.vkontakte.android.AudioAttachView android:gravity="center_vertical" android:id="@id/AudioAttachView1" android:paddingTop="3.0dip" android:paddingBottom="3.0dip" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/aa_icon" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_play_list" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <TextView android:textColor="@color/main_text" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/aa_title" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="7.0dip" android:text="Audio Attach View" android:singleLine="true" android:layout_toRightOf="@id/aa_icon" android:layout_centerVertical="true" />
+</com.vkontakte.android.AudioAttachView>

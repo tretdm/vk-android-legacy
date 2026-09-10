@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/LinearLayout1" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:vk="http://schemas.android.com/apk/res/com.vkontakte.android">
+    <TextView android:textSize="12.0dip" android:textStyle="bold" android:textColor="@color/ncomments" android:id="@id/ncomm_ntext" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="7.0dip" android:text="TextView" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <com.vkontakte.android.ui.RoundedImageView android:id="@id/ncomm_photo" android:layout_width="35.0dip" android:layout_height="35.0dip" android:layout_marginTop="6.0dip" android:layout_marginRight="7.0dip" android:layout_marginBottom="7.0dip" android:src="@drawable/photo_loading" android:layout_below="@id/ncomm_ntext" android:layout_alignParentLeft="true" vk:cornerRadius="2.0dip" />
+    <TextView android:textStyle="bold" android:textColor="@color/link" android:ellipsize="marquee" android:id="@id/ncomm_user" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="TextView" android:singleLine="true" android:layout_toRightOf="@id/ncomm_photo" android:layout_below="@id/ncomm_ntext" />
+    <TextView android:textColor="@color/main_text" android:ellipsize="marquee" android:id="@id/ncomm_comment" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="TextView" android:singleLine="true" android:layout_below="@id/ncomm_user" android:layout_alignLeft="@id/ncomm_user" />
+</RelativeLayout>

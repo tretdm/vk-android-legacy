@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:background="@drawable/bg_widget" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/w_player_prev" android:background="@drawable/widget_highlight_left" android:focusable="true" android:focusableInTouchMode="false" android:visibility="gone" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_widget_prev" />
+    <ImageView android:id="@id/w_player_play_pause" android:background="@drawable/widget_highlight" android:focusable="true" android:focusableInTouchMode="false" android:visibility="gone" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_widget_play" />
+    <ImageView android:id="@id/w_player_next" android:background="@drawable/widget_highlight" android:focusable="true" android:focusableInTouchMode="false" android:visibility="gone" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_widget_next" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/w_player_show" android:background="@drawable/widget_highlight_right" android:paddingLeft="5.0dip" android:paddingRight="10.0dip" android:focusable="true" android:focusableInTouchMode="false" android:visibility="gone" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <TextView android:textStyle="bold" android:textColor="#ffffffff" android:ellipsize="marquee" android:id="@id/w_player_artist" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="TextView" android:singleLine="true" />
+        <TextView android:textColor="#ffffffff" android:ellipsize="marquee" android:id="@id/w_player_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="TextView" android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/w_player_welcome" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/widget_logo" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip" android:src="@drawable/widget_music_icon" />
+        <TextView android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_audio" />
+    </LinearLayout>
+</LinearLayout>

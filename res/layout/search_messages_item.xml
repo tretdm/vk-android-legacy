@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.vkontakte.android.HLLinearLayout android:gravity="center" android:id="@id/HLLinearLayout1" android:background="@drawable/highlight" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="true"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:vk="http://schemas.android.com/apk/res/com.vkontakte.android">
+    <TextView android:textColor="@color/link" android:id="@id/flist_item_text" android:duplicateParentState="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:text="@string/search_in_msgs1" android:singleLine="true" />
+    <TextView android:textStyle="bold" android:textColor="@color/link" android:ellipsize="end" android:id="@id/search_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:layout_marginTop="2.5dip" android:layout_marginRight="3.0dip" android:text="TextView" />
+    <TextView android:textColor="@color/link" android:ellipsize="none" android:id="@id/search_p2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/search_in_msgs2" android:singleLine="true" />
+</com.vkontakte.android.HLLinearLayout>

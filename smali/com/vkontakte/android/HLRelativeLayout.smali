@@ -1,0 +1,166 @@
+.class public Lcom/vkontakte/android/HLRelativeLayout;
+.super Landroid/widget/RelativeLayout;
+.source "HLRelativeLayout.java"
+
+
+# instance fields
+.field lastPressed:J
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+
+    .prologue
+    .line 15
+    invoke-direct {p0, p1}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V
+
+    .line 12
+    const-wide/16 v0, 0x0
+
+    iput-wide v0, p0, Lcom/vkontakte/android/HLRelativeLayout;->lastPressed:J
+
+    .line 16
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+
+    .prologue
+    .line 19
+    invoke-direct {p0, p1, p2}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    .line 12
+    const-wide/16 v0, 0x0
+
+    iput-wide v0, p0, Lcom/vkontakte/android/HLRelativeLayout;->lastPressed:J
+
+    .line 20
+    return-void
+.end method
+
+
+# virtual methods
+.method public deselect()V
+    .locals 3
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 36
+    invoke-super {p0, v2}, Landroid/widget/RelativeLayout;->setSelected(Z)V
+
+    .line 37
+    invoke-super {p0, v2}, Landroid/widget/RelativeLayout;->setPressed(Z)V
+
+    .line 38
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/vkontakte/android/HLRelativeLayout;->lastPressed:J
+
+    .line 39
+    invoke-virtual {p0}, Lcom/vkontakte/android/HLRelativeLayout;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    instance-of v0, v0, Lcom/vkontakte/android/ui/HighlightDrawable;
+
+    if-eqz v0, :cond_0
+
+    .line 40
+    invoke-virtual {p0}, Lcom/vkontakte/android/HLRelativeLayout;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/vkontakte/android/ui/HighlightDrawable;
+
+    invoke-virtual {v0, v2}, Lcom/vkontakte/android/ui/HighlightDrawable;->setSel(Z)V
+
+    .line 42
+    :cond_0
+    invoke-virtual {p0}, Lcom/vkontakte/android/HLRelativeLayout;->invalidate()V
+
+    .line 43
+    return-void
+.end method
+
+.method public setPressed(Z)V
+    .locals 4
+    .param p1, "p"    # Z
+
+    .prologue
+    .line 30
+    if-eqz p1, :cond_0
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    iget-wide v2, p0, Lcom/vkontakte/android/HLRelativeLayout;->lastPressed:J
+
+    sub-long/2addr v0, v2
+
+    const-wide/16 v2, 0x12c
+
+    cmp-long v0, v0, v2
+
+    if-gez v0, :cond_0
+
+    .line 33
+    :goto_0
+    return-void
+
+    .line 31
+    :cond_0
+    invoke-super {p0, p1}, Landroid/widget/RelativeLayout;->setPressed(Z)V
+
+    .line 32
+    invoke-virtual {p0}, Lcom/vkontakte/android/HLRelativeLayout;->invalidate()V
+
+    goto :goto_0
+.end method
+
+.method public setSelected(Z)V
+    .locals 1
+    .param p1, "p"    # Z
+
+    .prologue
+    .line 23
+    invoke-virtual {p0}, Lcom/vkontakte/android/HLRelativeLayout;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    instance-of v0, v0, Lcom/vkontakte/android/ui/HighlightDrawable;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/vkontakte/android/HLRelativeLayout;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/vkontakte/android/ui/HighlightDrawable;
+
+    invoke-virtual {v0}, Lcom/vkontakte/android/ui/HighlightDrawable;->isSel()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    if-nez p1, :cond_0
+
+    .line 27
+    :goto_0
+    return-void
+
+    .line 26
+    :cond_0
+    invoke-super {p0, p1}, Landroid/widget/RelativeLayout;->setSelected(Z)V
+
+    goto :goto_0
+.end method

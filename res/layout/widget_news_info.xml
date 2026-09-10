@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bg_widget" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/linearLayout2" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/w_news_logo" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:src="@drawable/widget_logo" android:scaleType="fitStart" android:layout_weight="1.0" />
+        <ImageView android:id="@id/w_news_btn_newpost" android:background="@drawable/widget_highlight_i" android:focusable="true" android:focusableInTouchMode="false" android:visibility="invisible" android:clickable="true" android:layout_width="38.0dip" android:layout_height="38.0dip" android:layout_margin="5.0dip" android:src="@drawable/ic_widget_new_post" android:scaleType="center" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/RelativeLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" android:layout_weight="1.0">
+        <TextView android:textSize="16.0dip" android:textColor="#ff000000" android:gravity="center" android:id="@id/w_news_info_text" android:background="@drawable/bg_widget_news" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/loading" />
+    </RelativeLayout>
+    <FrameLayout android:id="@id/linearLayout5" android:layout_width="fill_parent" android:layout_height="47.0dip">
+        <ImageView android:layout_gravity="center" android:id="@id/w_news_btn_refresh" android:background="@drawable/widget_highlight_i" android:visibility="gone" android:clickable="true" android:layout_width="38.0dip" android:layout_height="38.0dip" android:src="@drawable/ic_widget_news_refresh" android:scaleType="center" />
+        <ImageView android:layout_gravity="center|right" android:id="@id/w_news_btn_next_disabled" android:layout_width="38.0dip" android:layout_height="38.0dip" android:layout_marginRight="5.0dip" android:src="@drawable/ic_widget_news_next_disabled" android:scaleType="center" />
+        <ImageView android:layout_gravity="center" android:id="@id/w_news_btn_refresh_disabled" android:layout_width="38.0dip" android:layout_height="38.0dip" android:src="@drawable/ic_widget_news_refresh_disabled" android:scaleType="center" />
+        <ImageView android:layout_gravity="center|left" android:id="@id/w_news_btn_prev_disabled" android:layout_width="38.0dip" android:layout_height="38.0dip" android:layout_marginLeft="5.0dip" android:src="@drawable/ic_widget_news_prev_disabled" android:scaleType="center" />
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bg_widget" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/linearLayout2" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/w_news_logo" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:src="@drawable/widget_logo" android:scaleType="fitStart" android:layout_weight="1.0" />
+        <ImageView android:id="@id/w_news_btn_newpost" android:background="@drawable/widget_highlight_i" android:focusable="true" android:focusableInTouchMode="false" android:visibility="visible" android:clickable="true" android:layout_width="38.0dip" android:layout_height="38.0dip" android:layout_margin="5.0dip" android:src="@drawable/ic_widget_new_post" android:scaleType="center" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/RelativeLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:id="@id/w_news_post" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <RelativeLayout android:id="@id/RelativeLayout1" android:background="@drawable/bg_widget_news_top" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <ImageView android:id="@id/w_news_photo" android:layout_width="50.0dip" android:layout_height="50.0dip" android:layout_marginLeft="8.0dip" android:layout_marginTop="8.0dip" android:layout_marginRight="8.0dip" android:src="@drawable/photo_loading" />
+                <ImageView android:id="@id/imageView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginTop="8.0dip" android:layout_marginRight="8.0dip" android:src="@drawable/wall_photo_border" />
+                <TextView android:textSize="16.0dip" android:textStyle="bold" android:textColor="#ff3f3f3f" android:ellipsize="marquee" android:id="@id/w_news_username" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginRight="8.0dip" android:text="TextView" android:singleLine="true" android:layout_toRightOf="@id/w_news_photo" android:layout_alignParentTop="true" />
+                <TextView android:textSize="14.0dip" android:textColor="#ff666666" android:id="@id/w_news_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TextView" android:layout_below="@id/w_news_username" android:layout_alignLeft="@id/w_news_username" />
+            </RelativeLayout>
+            <RelativeLayout android:orientation="vertical" android:id="@id/RelativeLayout1" android:background="@drawable/bg_widget_news_bottom" android:padding="7.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <ImageView android:id="@id/w_news_retweet_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_retweet_up" android:layout_alignTop="@id/w_news_retweet_name" android:layout_alignBottom="@id/w_news_retweet_name" />
+                <TextView android:textStyle="bold" android:textColor="#ff000000" android:ellipsize="marquee" android:id="@id/w_news_retweet_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="TextView" android:singleLine="true" android:layout_toRightOf="@id/w_news_retweet_icon" android:layout_alignParentRight="true" />
+                <TextView android:textSize="14.0dip" android:textColor="#ff000000" android:textColorHighlight="#802b587a" android:textColorLink="#ff2b587a" android:id="@id/w_news_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="TextView" android:layout_below="@id/w_news_retweet_name" android:layout_alignLeft="@id/textView1" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <FrameLayout android:id="@id/linearLayout5" android:layout_width="fill_parent" android:layout_height="47.0dip">
+        <ImageView android:layout_gravity="center|right" android:id="@id/w_news_btn_next" android:background="@drawable/widget_highlight_i" android:visibility="visible" android:clickable="true" android:layout_width="38.0dip" android:layout_height="38.0dip" android:layout_marginRight="5.0dip" android:src="@drawable/ic_widget_news_next" android:scaleType="center" />
+        <ImageView android:layout_gravity="center" android:id="@id/w_news_btn_refresh" android:background="@drawable/widget_highlight_i" android:visibility="visible" android:clickable="true" android:layout_width="38.0dip" android:layout_height="38.0dip" android:src="@drawable/ic_widget_news_refresh" android:scaleType="center" />
+        <ImageView android:layout_gravity="center|left" android:id="@id/w_news_btn_prev" android:background="@drawable/widget_highlight_i" android:visibility="visible" android:clickable="true" android:layout_width="38.0dip" android:layout_height="38.0dip" android:layout_marginLeft="5.0dip" android:src="@drawable/ic_widget_news_prev" android:scaleType="center" />
+    </FrameLayout>
+</LinearLayout>
