@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="replies_max_lines">3</integer>
+    <integer name="spb_default_interpolator">0</integer>
+    <integer name="spb_default_sections_count">4</integer>
+</resources>

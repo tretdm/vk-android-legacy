@@ -1,0 +1,137 @@
+.class Lcom/vkontakte/android/fragments/StickersDetailsFragment$SlidePagerAdapter;
+.super Landroid/support/v4/view/PagerAdapter;
+.source "StickersDetailsFragment.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/vkontakte/android/fragments/StickersDetailsFragment;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "SlidePagerAdapter"
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lcom/vkontakte/android/fragments/StickersDetailsFragment;
+
+
+# direct methods
+.method private constructor <init>(Lcom/vkontakte/android/fragments/StickersDetailsFragment;)V
+    .locals 0
+
+    .prologue
+    .line 351
+    iput-object p1, p0, Lcom/vkontakte/android/fragments/StickersDetailsFragment$SlidePagerAdapter;->this$0:Lcom/vkontakte/android/fragments/StickersDetailsFragment;
+
+    invoke-direct {p0}, Landroid/support/v4/view/PagerAdapter;-><init>()V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Lcom/vkontakte/android/fragments/StickersDetailsFragment;Lcom/vkontakte/android/fragments/StickersDetailsFragment$1;)V
+    .locals 0
+    .param p1, "x0"    # Lcom/vkontakte/android/fragments/StickersDetailsFragment;
+    .param p2, "x1"    # Lcom/vkontakte/android/fragments/StickersDetailsFragment$1;
+
+    .prologue
+    .line 351
+    invoke-direct {p0, p1}, Lcom/vkontakte/android/fragments/StickersDetailsFragment$SlidePagerAdapter;-><init>(Lcom/vkontakte/android/fragments/StickersDetailsFragment;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public destroyItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
+    .locals 0
+    .param p1, "container"    # Landroid/view/ViewGroup;
+    .param p2, "position"    # I
+    .param p3, "object"    # Ljava/lang/Object;
+
+    .prologue
+    .line 370
+    check-cast p3, Landroid/view/View;
+
+    .end local p3    # "object":Ljava/lang/Object;
+    invoke-virtual {p1, p3}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
+
+    .line 371
+    return-void
+.end method
+
+.method public getCount()I
+    .locals 1
+
+    .prologue
+    .line 354
+    iget-object v0, p0, Lcom/vkontakte/android/fragments/StickersDetailsFragment$SlidePagerAdapter;->this$0:Lcom/vkontakte/android/fragments/StickersDetailsFragment;
+
+    invoke-static {v0}, Lcom/vkontakte/android/fragments/StickersDetailsFragment;->access$900(Lcom/vkontakte/android/fragments/StickersDetailsFragment;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public instantiateItem(Landroid/view/ViewGroup;I)Ljava/lang/Object;
+    .locals 2
+    .param p1, "container"    # Landroid/view/ViewGroup;
+    .param p2, "position"    # I
+
+    .prologue
+    .line 363
+    new-instance v0, Landroid/widget/ImageView;
+
+    iget-object v1, p0, Lcom/vkontakte/android/fragments/StickersDetailsFragment$SlidePagerAdapter;->this$0:Lcom/vkontakte/android/fragments/StickersDetailsFragment;
+
+    invoke-virtual {v1}, Lcom/vkontakte/android/fragments/StickersDetailsFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+
+    .line 364
+    .local v0, "view":Landroid/widget/ImageView;
+    iget-object v1, p0, Lcom/vkontakte/android/fragments/StickersDetailsFragment$SlidePagerAdapter;->this$0:Lcom/vkontakte/android/fragments/StickersDetailsFragment;
+
+    invoke-static {v1}, Lcom/vkontakte/android/fragments/StickersDetailsFragment;->access$1000(Lcom/vkontakte/android/fragments/StickersDetailsFragment;)[Landroid/graphics/Bitmap;
+
+    move-result-object v1
+
+    aget-object v1, v1, p2
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+
+    .line 365
+    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+
+    .line 366
+    return-object v0
+.end method
+
+.method public isViewFromObject(Landroid/view/View;Ljava/lang/Object;)Z
+    .locals 1
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "o"    # Ljava/lang/Object;
+
+    .prologue
+    .line 359
+    if-ne p1, p2, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method

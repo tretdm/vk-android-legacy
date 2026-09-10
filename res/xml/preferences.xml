@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/sett_general">
+        <ListPreference android:entries="@array/sett_friends_order" android:title="@string/sett_flist_sort" android:key="friendsOrderNew" android:defaultValue="firstname" android:dialogTitle="@string/sett_flist_sort" android:entryValues="@array/sett_friends_order_v" />
+        <CheckBoxPreference android:title="@string/sett_https" android:key="useHTTPS" android:summary="@string/sett_https_summary" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/sett_update_on_open" android:key="refreshOnOpen" android:summary="@string/sett_update_on_open_summary" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/sett_bdays" android:key="notifyBDays" android:defaultValue="true" />
+        <Preference android:title="@string/sett_advanced" android:key="advanced" android:summary="" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/sett_notifications" android:key="cat_notify">
+        <CheckBoxPreference android:title="@string/enable" android:key="notifications" android:defaultValue="true" />
+        <com.vkontakte.android.ui.MultiSelectListPreference android:entries="@array/sett_notify_types" android:title="@string/sett_notify_types" android:key="notifyTypes" android:dependency="notifications" android:defaultValue="@array/sett_notify_type_values" android:entryValues="@array/sett_notify_type_values" />
+        <RingtonePreference android:title="@string/sett_notify_sound" android:key="notifyRingtone" android:dependency="notifications" android:defaultValue="content://settings/system/notification_sound" android:ringtoneType="notification" android:showDefault="true" />
+        <CheckBoxPreference android:title="@string/sett_notify_vibrate" android:key="notifyVibrate" android:dependency="notifications" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/sett_notify_led" android:key="notifyLED" android:dependency="notifications" android:defaultValue="true" />
+        <Preference android:title="@string/chat_dnd" android:key="dnd_hour" android:summary="" android:dependency="notifications" />
+        <Preference android:title="@string/sett_dnd_cancel" android:key="dnd_cancel" android:summary="" android:dependency="notifications" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/sett_account">
+        <Preference android:title="@string/sett_news_banned" android:key="newsBanned" android:summary="@string/sett_news_banned_summary" />
+        <Preference android:title="@string/blacklist" android:key="blacklist" android:summary="@string/blacklist_summary" />
+        <Preference android:title="@string/sett_sync" android:key="sync" android:summary="" />
+        <Preference android:title="@string/change_password" android:key="changePassword" android:summary="" />
+        <Preference android:title="@string/log_out" android:key="logOut" android:summary="" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/sett_other">
+        <CheckBoxPreference android:title="@string/sett_safe_search" android:key="safeSearch" android:summary="@string/sett_safe_search_summary" android:defaultValue="true" />
+        <Preference android:title="@string/menu_about" android:key="about" />
+    </PreferenceCategory>
+</PreferenceScreen>

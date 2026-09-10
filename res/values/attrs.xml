@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="orientation">
+        <enum name="horizontal" value="0" />
+        <enum name="vertical" value="1" />
+    </attr>
+    <attr name="ptrHeaderStyle" format="reference" />
+    <attr name="overlay" format="reference" />
+    <attr name="padOverlay" format="boolean" />
+    <attr name="padAsBackground" format="boolean" />
+    <attr name="indicatorColor" format="color" />
+    <attr name="underlineColor" format="color" />
+    <attr name="dividerColor" format="color" />
+    <attr name="indicatorHeight" format="dimension" />
+    <attr name="underlineHeight" format="dimension" />
+    <attr name="dividerPadding" format="dimension" />
+    <attr name="tabPaddingLeftRight" format="dimension" />
+    <attr name="scrollOffset" format="dimension" />
+    <attr name="tabBackground" format="reference" />
+    <attr name="shouldExpand" format="boolean" />
+    <attr name="textAllCaps" format="boolean" />
+    <attr name="ptrHeaderBackground" format="reference|color" />
+    <attr name="ptrHeaderHeight" format="reference|dimension" />
+    <attr name="ptrHeaderTitleTextAppearance" format="reference" />
+    <attr name="ptrProgressBarColor" format="reference|color" />
+    <attr name="ptrProgressBarStyle">
+        <flag name="inside" value="0x00000000" />
+        <flag name="outside" value="0x00000001" />
+    </attr>
+    <attr name="ptrProgressBarHeight" format="reference|dimension" />
+    <attr name="ptrPullText" format="reference|string" />
+    <attr name="ptrRefreshingText" format="reference|string" />
+    <attr name="ptrReleaseText" format="reference|string" />
+    <attr name="ptrSmoothProgressBarStyle" format="reference" />
+    <attr name="ptrViewDelegateClass" format="reference|string" />
+    <attr name="cornerRadius" format="dimension" />
+    <attr name="handle" format="reference" />
+    <attr name="content" format="reference" />
+    <attr name="bottomOffset" format="dimension" />
+    <attr name="topOffset" format="dimension" />
+    <attr name="allowSingleTap" format="boolean" />
+    <attr name="animateOnClick" format="boolean" />
+    <attr name="spbStyle" format="reference" />
+    <attr name="spb_color" format="color" />
+    <attr name="spb_stroke_width" format="dimension" />
+    <attr name="spb_stroke_separator_length" format="dimension" />
+    <attr name="spb_sections_count" format="integer" />
+    <attr name="spb_speed" format="float" />
+    <attr name="spb_progressiveStart_speed" format="float" />
+    <attr name="spb_progressiveStop_speed" format="float" />
+    <attr name="spb_interpolator">
+        <enum name="spb_interpolator_accelerate" value="0" />
+        <enum name="spb_interpolator_linear" value="1" />
+        <enum name="spb_interpolator_acceleratedecelerate" value="2" />
+        <enum name="spb_interpolator_decelerate" value="3" />
+    </attr>
+    <attr name="spb_reversed" format="boolean" />
+    <attr name="spb_mirror_mode" format="boolean" />
+    <attr name="spb_colors" format="reference" />
+    <attr name="spb_progressiveStart_activated" format="boolean" />
+    <attr name="spb_background" format="reference" />
+    <attr name="spb_generate_background_with_colors" format="boolean" />
+    <attr name="spb_gradients" format="boolean" />
+    <attr name="shadowNormal" format="string" />
+    <attr name="shadowPressed" format="string" />
+    <attr name="shadowSelected" format="string" />
+    <attr name="shadowDisabled" format="string" />
+</resources>

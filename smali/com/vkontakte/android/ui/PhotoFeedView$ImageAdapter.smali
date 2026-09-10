@@ -1,0 +1,181 @@
+.class Lcom/vkontakte/android/ui/PhotoFeedView$ImageAdapter;
+.super Lcom/vkontakte/android/ui/ListImageLoaderAdapter;
+.source "PhotoFeedView.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/vkontakte/android/ui/PhotoFeedView;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "ImageAdapter"
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lcom/vkontakte/android/ui/PhotoFeedView;
+
+
+# direct methods
+.method private constructor <init>(Lcom/vkontakte/android/ui/PhotoFeedView;)V
+    .locals 0
+
+    .prologue
+    .line 354
+    iput-object p1, p0, Lcom/vkontakte/android/ui/PhotoFeedView$ImageAdapter;->this$0:Lcom/vkontakte/android/ui/PhotoFeedView;
+
+    invoke-direct {p0}, Lcom/vkontakte/android/ui/ListImageLoaderAdapter;-><init>()V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Lcom/vkontakte/android/ui/PhotoFeedView;Lcom/vkontakte/android/ui/PhotoFeedView$1;)V
+    .locals 0
+    .param p1, "x0"    # Lcom/vkontakte/android/ui/PhotoFeedView;
+    .param p2, "x1"    # Lcom/vkontakte/android/ui/PhotoFeedView$1;
+
+    .prologue
+    .line 354
+    invoke-direct {p0, p1}, Lcom/vkontakte/android/ui/PhotoFeedView$ImageAdapter;-><init>(Lcom/vkontakte/android/ui/PhotoFeedView;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getImageCountForItem(I)I
+    .locals 1
+    .param p1, "item"    # I
+
+    .prologue
+    .line 362
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public getImageURL(II)Ljava/lang/String;
+    .locals 2
+    .param p1, "item"    # I
+    .param p2, "image"    # I
+
+    .prologue
+    .line 367
+    iget-object v0, p0, Lcom/vkontakte/android/ui/PhotoFeedView$ImageAdapter;->this$0:Lcom/vkontakte/android/ui/PhotoFeedView;
+
+    invoke-static {v0}, Lcom/vkontakte/android/ui/PhotoFeedView;->access$1600(Lcom/vkontakte/android/ui/PhotoFeedView;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/vkontakte/android/ui/PhotoFeedView$PhotoLayout;
+
+    iget-object v0, v0, Lcom/vkontakte/android/ui/PhotoFeedView$PhotoLayout;->photo:Lcom/vkontakte/android/Photo;
+
+    const/16 v1, 0x6d
+
+    invoke-virtual {v0, v1}, Lcom/vkontakte/android/Photo;->getImage(C)Lcom/vkontakte/android/Photo$Image;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/vkontakte/android/Photo$Image;->url:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getItemCount()I
+    .locals 1
+
+    .prologue
+    .line 357
+    iget-object v0, p0, Lcom/vkontakte/android/ui/PhotoFeedView$ImageAdapter;->this$0:Lcom/vkontakte/android/ui/PhotoFeedView;
+
+    invoke-static {v0}, Lcom/vkontakte/android/ui/PhotoFeedView;->access$1600(Lcom/vkontakte/android/ui/PhotoFeedView;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public imageLoaded(IILandroid/graphics/Bitmap;)V
+    .locals 3
+    .param p1, "item"    # I
+    .param p2, "image"    # I
+    .param p3, "bitmap"    # Landroid/graphics/Bitmap;
+
+    .prologue
+    .line 372
+    iget-object v1, p0, Lcom/vkontakte/android/ui/PhotoFeedView$ImageAdapter;->this$0:Lcom/vkontakte/android/ui/PhotoFeedView;
+
+    invoke-static {v1}, Lcom/vkontakte/android/ui/PhotoFeedView;->access$1700(Lcom/vkontakte/android/ui/PhotoFeedView;)Lcom/vkontakte/android/ui/HorizontalListView;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/vkontakte/android/ui/HorizontalListView;->getFirstVisiblePosition()I
+
+    move-result v1
+
+    if-lt p1, v1, :cond_0
+
+    iget-object v1, p0, Lcom/vkontakte/android/ui/PhotoFeedView$ImageAdapter;->this$0:Lcom/vkontakte/android/ui/PhotoFeedView;
+
+    invoke-static {v1}, Lcom/vkontakte/android/ui/PhotoFeedView;->access$1700(Lcom/vkontakte/android/ui/PhotoFeedView;)Lcom/vkontakte/android/ui/HorizontalListView;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/vkontakte/android/ui/HorizontalListView;->getLastVisiblePosition()I
+
+    move-result v1
+
+    if-le p1, v1, :cond_1
+
+    .line 379
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 373
+    :cond_1
+    iget-object v1, p0, Lcom/vkontakte/android/ui/PhotoFeedView$ImageAdapter;->this$0:Lcom/vkontakte/android/ui/PhotoFeedView;
+
+    invoke-static {v1}, Lcom/vkontakte/android/ui/PhotoFeedView;->access$1700(Lcom/vkontakte/android/ui/PhotoFeedView;)Lcom/vkontakte/android/ui/HorizontalListView;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/vkontakte/android/ui/PhotoFeedView$ImageAdapter;->this$0:Lcom/vkontakte/android/ui/PhotoFeedView;
+
+    invoke-static {v2}, Lcom/vkontakte/android/ui/PhotoFeedView;->access$1700(Lcom/vkontakte/android/ui/PhotoFeedView;)Lcom/vkontakte/android/ui/HorizontalListView;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/vkontakte/android/ui/HorizontalListView;->getFirstVisiblePosition()I
+
+    move-result v2
+
+    sub-int v2, p1, v2
+
+    invoke-virtual {v1, v2}, Lcom/vkontakte/android/ui/HorizontalListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 374
+    .local v0, "v":Landroid/view/View;
+    iget-object v1, p0, Lcom/vkontakte/android/ui/PhotoFeedView$ImageAdapter;->this$0:Lcom/vkontakte/android/ui/PhotoFeedView;
+
+    new-instance v2, Lcom/vkontakte/android/ui/PhotoFeedView$ImageAdapter$1;
+
+    invoke-direct {v2, p0, v0, p3}, Lcom/vkontakte/android/ui/PhotoFeedView$ImageAdapter$1;-><init>(Lcom/vkontakte/android/ui/PhotoFeedView$ImageAdapter;Landroid/view/View;Landroid/graphics/Bitmap;)V
+
+    invoke-virtual {v1, v2}, Lcom/vkontakte/android/ui/PhotoFeedView;->post(Ljava/lang/Runnable;)Z
+
+    goto :goto_0
+.end method

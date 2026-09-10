@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.vkontakte.android.NewsItemView android:background="@drawable/bg_post" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:vk="http://schemas.android.com/apk/res/com.vkontakte.android">
+    <include android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/news_item_header" />
+    <include android:id="@id/post_view_ref" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:layout_below="@id/post_retweet_photo" android:layout_alignParentLeft="true" layout="@layout/news_item_text" />
+    <com.vkontakte.android.ui.FlowLayout android:id="@id/post_attach_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="1.0dip" android:layout_marginRight="5.0dip" android:layout_below="@id/post_view_ref" android:layout_alignParentLeft="true" dip="" />
+    <include android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/news_item_footer" />
+    <com.vkontakte.android.ui.LinkedTextView android:textSize="14.0dip" android:textColor="@color/main_text" android:linksClickable="false" android:id="@id/post_retweet_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="-2.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="8.0dip" android:text="repost text" android:layout_below="@id/user_photo" android:layout_alignParentLeft="true" />
+    <com.vkontakte.android.ui.FlowLayout android:id="@id/post_repost_attach_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="1.0dip" android:layout_marginRight="5.0dip" android:layout_below="@id/post_retweet_text" android:layout_alignParentLeft="true" />
+    <include android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/news_item_repost" />
+</com.vkontakte.android.NewsItemView>

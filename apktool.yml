@@ -1,0 +1,32 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: LegacyVK-3.7.1.apk
+compressionType: false
+doNotCompress:
+- resources.arsc
+- jpg
+- png
+- assets/stickers/3.zip
+- res/drawable-hdpi-v4/pe_icon_contrast_selected
+- res/drawable-hdpi-v4/pe_icon_filters_selected
+- res/drawable-hdpi-v4/pe_icon_text
+- res/drawable-hdpi-v4/pe_icon_text_selected
+- res/drawable-mdpi-v4/pe_big_checked
+- res/drawable-mdpi-v4/pe_icon_text
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '14'
+  targetSdkVersion: '19'
+sharedLibrary: false
+sparseResources: false
+unknownFiles: {}
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.4.1
+versionInfo:
+  versionCode: '591'
+  versionName: 3.7.1

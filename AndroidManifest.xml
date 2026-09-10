@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.vkontakte.android">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.vkontakte.android.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.vkontakte.android.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.vkontakte.android.permission.ACCESS_DATA"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <permission android:name="com.vkontakte.android.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <permission android:name="com.vkontakte.android.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <permission android:name="com.vkontakte.android.permission.ACCESS_DATA" android:protectionLevel="signature"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <application android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.vkontakte.android.VKApplication" android:theme="@style/BaseStyle">
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAvrvAACdzmgDYFM9hvJS88KdSlQsafID0"/>
+        <activity android:name="net.hockeyapp.android.UpdateActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.vkontakte.android.MainActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="" android:name="com.vkontakte.android.FragmentWrapperActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/attach_photo" android:name="com.vkontakte.android.ImagePickerActivity" android:theme="@style/TransparentTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.vkontakte.android.PhotoViewerActivity" android:theme="@style/TranslucentStyleWithTitle"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/auth" android:name="com.vkontakte.android.AuthActivity" android:theme="@style/NoTitleAndShadow" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/search" android:name="com.vkontakte.android.QuickSearchActivity" android:theme="@android:style/Theme.Holo" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/new_status" android:name="com.vkontakte.android.NewPostActivity" android:theme="@style/PopupIfTablet"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="" android:name="com.vkontakte.android.RepostActivity" android:theme="@style/TransparentTheme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/check_in_title" android:name="com.vkontakte.android.CheckInActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.vkontakte.android.LinkRedirActivity" android:theme="@style/TranslucentStyle">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="vklink"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="openvk.org" android:pathPattern="/.*" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="openvk.org" android:pathPattern="/.*" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="openvk.uk" android:pathPattern="/.*" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="openvk.uk" android:pathPattern="/.*" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="openvk.xyz" android:pathPattern="/.*" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="openvk.xyz" android:pathPattern="/.*" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*" android:pathPattern="/.*" android:scheme="vkontakte"/>
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:mimeType="vnd.android.cursor.item/vnd.com.vkontakte.android.sendmsg"/>
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:mimeType="vnd.android.cursor.item/vnd.com.vkontakte.android.profile"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="m.vk.com" android:pathPattern="/.*" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/my_stickers" android:name="com.vkontakte.android.StickerManagerActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="" android:name="com.vkontakte.android.mediapicker.GalleryPickerActivity" android:theme="@android:style/Theme.Holo" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="" android:name="com.vkontakte.android.PostPhotoActivity" android:theme="@style/TranslucentStyle"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/message" android:name="com.vkontakte.android.ValidationActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="" android:name="com.vkontakte.android.NewVideoPlayerActivity" android:process=":videoplayer" android:theme="@style/NoContentOverlay"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/menu_settings" android:name="com.vkontakte.android.SettingsActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/menu_settings" android:name="com.vkontakte.android.SettingsAdvancedActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/auth" android:name="com.vkontakte.android.LoginActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/edit_profile" android:name="com.vkontakte.android.ProfileEditActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="" android:name="com.vkontakte.android.SendActivity" android:theme="@style/TranslucentStyle">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter android:label="@string/share_wall">
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="" android:name="com.vkontakte.android.SendToAlbumActivity" android:theme="@style/TranslucentStyle">
+            <intent-filter android:label="@string/share_album">
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="" android:name="com.vkontakte.android.WelcomeActivity" android:theme="@style/TransparentTheme">
+            <intent-filter>
+                <action android:name="com.vkontakte.android.SYNC_SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/photo" android:name="com.vkontakte.android.SendSinglePhotoActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="" android:name="com.vkontakte.android.CaptchaActivity" android:theme="@style/TranslucentStyle"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/suggest_friends" android:name="com.vkontakte.android.SuggestionsActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/report_content" android:name="com.vkontakte.android.ReportContentActivity" android:theme="@style/TranslucentStyle"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="" android:name="com.vkontakte.android.DocumentChooserActivity" android:theme="@style/TranslucentStyle"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/select_geo_point" android:name="com.vkontakte.android.SelectGeoPointActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="" android:name="com.vkontakte.android.NotificationActivity" android:theme="@style/TranslucentStyle"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/pick_file" android:name="com.vkontakte.android.FilePickerActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="" android:name="com.vkontakte.android.WikiViewActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/auth" android:name="com.vkontakte.android.SDKAuthActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.vkontakte.android.action.SDK_AUTH"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/registration" android:name="com.vkontakte.android.SignupActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/forgot_pass" android:name="com.vkontakte.android.RestoreActivity"/>
+        <activity android:label="@string/app_name" android:name="com.vkontakte.android.AudioPlayerActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/change_password" android:name="com.vkontakte.android.ChangePasswordActivity" android:theme="@style/TranslucentStyle"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/attach_poll" android:name="com.vkontakte.android.PollEditorActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/buy_stickers" android:name="com.vkontakte.android.StoreActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="" android:name="com.vkontakte.android.BillingActivity" android:theme="@style/TranslucentStyle"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/sett_news_banned" android:name="com.vkontakte.android.NewsfeedBanlistActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/wall" android:name="com.vkontakte.android.TestActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="test" android:scheme="vkontakte"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="ВК - отладка" android:name="com.vkontakte.android.DebugPrefsActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/sett_network_prefs" android:name="com.vkontakte.android.SettingsNetworkActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/msg_forward" android:name="com.vkontakte.android.ForwardMessageActivity">
+            <intent-filter android:label="@string/shortcut_type_title">
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="com.vkontakte.android.LongPollService"/>
+        <service android:name="com.vkontakte.android.AudioPlayerService"/>
+        <service android:name="com.vkontakte.android.UploaderService"/>
+        <service android:exported="true" android:name="com.vkontakte.android.AccountAuthenticatorService" android:process=":auth">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <service android:exported="true" android:name="com.vkontakte.android.ContactsSyncAdapterService" android:process=":sync">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/sync_contacts"/>
+            <meta-data android:name="android.provider.CONTACTS_STRUCTURE" android:resource="@xml/contacts_custom_type"/>
+        </service>
+        <service android:name="com.vkontakte.android.C2DMReceiver"/>
+        <service android:name="com.vkontakte.android.StickerDownloaderService"/>
+        <receiver android:name="com.vkontakte.android.MediaButtonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.vkontakte.android.NetworkStateReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_player" android:name="com.vkontakte.android.PlayerWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_player_provider"/>
+        </receiver>
+        <receiver android:label="@string/widget_player_big" android:name="com.vkontakte.android.PlayerBigWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_player_big_provider"/>
+        </receiver>
+        <receiver android:name="com.vkontakte.android.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.vkontakte.android"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.vkontakte.android.BirthdayBroadcastReceiver"/>
+        <receiver android:name="com.vkontakte.android.DebugBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SECRET_CODE"/>
+                <data android:host="\ 856682583" android:scheme="android_secret_code"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.vkontakte.android.NotificationButtonsReceiver">
+            <intent-filter>
+                <action android:name="com.vkontakte.android.ACCEPT_FRIEND"/>
+                <action android:name="com.vkontakte.android.DECLINE_FRIEND"/>
+            </intent-filter>
+        </receiver>
+        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:resource="@dimen/app_defaultsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:resource="@dimen/app_defaultsize_h"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:resource="@dimen/app_minimumsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:resource="@dimen/app_minimumsize_h"/>
+    </application>
+</manifest>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.vkontakte.android.ui.FullWidthLinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/msg_suggestion_photo" android:layout_width="50.0dip" android:layout_height="50.0dip" android:src="@drawable/photo_loading" />
+    <TextView android:textSize="18.0dip" android:textColor="#ff000000" android:id="@id/msg_suggestion_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:text="TextView" android:singleLine="true" android:layout_weight="1.0" />
+</com.vkontakte.android.ui.FullWidthLinearLayout>

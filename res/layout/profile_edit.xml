@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:vk="http://schemas.android.com/apk/res/com.vkontakte.android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include android:id="@id/edit_info_box" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/profile_edit_info" />
+        <com.vkontakte.android.ui.FormFieldsLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/edit_name_header" android:layout_weight="1.0" android:textAllCaps="true" style="@style/CardsSectionHeader" />
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.5">
+                <EditText android:id="@id/edit_first_name" android:background="@drawable/bg_post_comments_top" android:paddingBottom="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/signup_first_name" android:maxLength="32" android:inputType="textPersonName|textCapWords" style="@style/CardTextEdit" />
+                <EditText android:id="@id/edit_last_name" android:background="@drawable/bg_post_comments_mid" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/signup_last_name" android:maxLength="32" android:inputType="textPersonName|textCapWords" style="@style/CardTextEdit" />
+                <LinearLayout android:background="@drawable/bg_post_comments_btm" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <com.vkontakte.android.ui.OverlayTextView android:textSize="18.0dip" android:gravity="center_vertical" android:id="@id/signup_gender_male" android:paddingLeft="13.0dip" android:layout_width="fill_parent" android:layout_height="48.0dip" android:text="@string/signup_male" android:drawableLeft="@drawable/register_radio" android:drawablePadding="10.0dip" android:layout_weight="1.0" vk:overlay="@drawable/highlight" />
+                    <View android:id="@id/view2" android:background="#ffe5e5e5" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" />
+                    <com.vkontakte.android.ui.OverlayTextView android:textSize="18.0dip" android:gravity="center_vertical" android:id="@id/signup_gender_female" android:paddingLeft="13.0dip" android:layout_width="fill_parent" android:layout_height="48.0dip" android:text="@string/signup_female" android:drawableLeft="@drawable/register_radio" android:drawablePadding="10.0dip" android:layout_weight="1.0" vk:overlay="@drawable/highlight" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.vkontakte.android.ui.FormFieldsLayout>
+        <com.vkontakte.android.ui.FormFieldsLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/edit_birth_date" android:layout_weight="1.0" android:textAllCaps="true" style="@style/CardsSectionHeader" />
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.5">
+                <com.vkontakte.android.ui.OverlayTextView android:id="@id/edit_bdate_chooser" android:background="@drawable/bg_post_comments_top" android:paddingBottom="12.0dip" android:focusableInTouchMode="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="date" android:drawableRight="@drawable/ic_dropdown_arrow" vk:overlay="@drawable/highlight" vk:padAsBackground="true" style="@style/CardTextEdit" />
+                <com.vkontakte.android.ui.OverlaySpinner android:id="@id/edit_bdate_visibility" android:background="@drawable/bg_post_comments_btm" android:layout_width="fill_parent" android:layout_height="wrap_content" vk:overlay="@drawable/highlight" vk:padAsBackground="true" />
+            </LinearLayout>
+        </com.vkontakte.android.ui.FormFieldsLayout>
+        <com.vkontakte.android.ui.FormFieldsLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/profile_relation" android:layout_weight="1.0" android:textAllCaps="true" style="@style/CardsSectionHeader" />
+            <LinearLayout android:orientation="vertical" android:background="@drawable/bg_post" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.5">
+                <com.vkontakte.android.ui.OverlaySpinner android:id="@id/edit_relation" android:background="@null" android:layout_width="fill_parent" android:layout_height="wrap_content" vk:overlay="@drawable/highlight" />
+                <View android:id="@id/edit_relation_divider" android:background="#ffe5e5e5" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" />
+                <LinearLayout android:gravity="center_vertical" android:id="@id/edit_relation_partner" android:background="@drawable/highlight" android:paddingLeft="12.0dip" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:id="@id/edit_relation_partner_photo" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/user_placeholder" />
+                    <TextView android:textSize="18.0dip" android:textColor="#ff000000" android:ellipsize="end" android:id="@id/edit_relation_partner_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:text="TextView" android:singleLine="true" android:layout_weight="1.0" />
+                    <ImageView android:id="@id/edit_relation_partner_remove" android:background="@drawable/highlight" android:padding="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_list_remove" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.vkontakte.android.ui.FormFieldsLayout>
+        <com.vkontakte.android.ui.FormFieldsLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/profile_city" android:layout_weight="1.0" android:textAllCaps="true" style="@style/CardsSectionHeader" />
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.5">
+                <com.vkontakte.android.ui.OverlaySpinner android:id="@id/edit_country" android:background="@drawable/bg_post_comments_top" android:layout_width="fill_parent" android:layout_height="wrap_content" vk:overlay="@drawable/highlight" vk:padAsBackground="true" />
+                <com.vkontakte.android.ui.OverlayTextView android:textColor="#ff000000" android:textColorHint="@color/hint" android:id="@id/edit_city" android:background="@drawable/bg_post_comments_btm" android:paddingTop="12.0dip" android:paddingBottom="20.0dip" android:focusableInTouchMode="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/edit_choose_city" android:drawableRight="@drawable/ic_dropdown_arrow" vk:overlay="@drawable/highlight" vk:padAsBackground="true" style="@style/CardTextEdit" />
+            </LinearLayout>
+        </com.vkontakte.android.ui.FormFieldsLayout>
+    </LinearLayout>
+</ScrollView>

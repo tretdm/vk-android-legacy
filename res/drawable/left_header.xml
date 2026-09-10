@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:left="15.0dip" android:right="15.0dip">
+        <nine-patch android:src="@drawable/bg_left_header" />
+    </item>
+</layer-list>
