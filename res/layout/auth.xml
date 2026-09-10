@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.vkontakte.android.ui.XLinearLayout android:orientation="vertical" android:id="@id/auth" android:background="@drawable/bg_auth" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/auth_root" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageView android:id="@id/auth_logo" android:paddingTop="20.0dip" android:paddingBottom="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:src="@drawable/login_logo" />
+            <LinearLayout android:orientation="vertical" android:background="@drawable/login_fields" android:layout_width="310.0dip" android:layout_height="wrap_content">
+                <EditText android:textSize="18.0dip" android:textColor="#ff000000" android:textColorHint="#ffafafaf" android:id="@id/auth_login" android:background="@null" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="" android:hint="@string/mail_or_login" android:inputType="textEmailAddress" />
+                <View android:id="@id/view1" android:background="#ffe5e5e5" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginLeft="8.0dip" android:layout_marginRight="8.0dip" />
+                <EditText android:textSize="18.0dip" android:typeface="sans" android:textColor="#ff000000" android:textColorHint="#ffafafaf" android:id="@id/auth_pass" android:background="@null" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="" android:hint="@string/password" android:password="true" android:singleLine="true" android:inputType="textFilter" />
+            </LinearLayout>
+            
+            <LinearLayout android:orientation="horizontal" android:layout_width="310dp" android:layout_height="51dp" android:layout_marginLeft="10dp" android:layout_marginTop="5dp" android:layout_marginRight="10dp" android:minWidth="100dp">
+                <Button android:textSize="18.0dip" android:textStyle="bold" android:textColor="@color/auth_btn" android:id="@id/auth_btn" android:background="@drawable/login_btn" android:layout_width="match_parent" android:layout_height="51.0dip" android:layout_marginRight="8.0dip" android:text="@string/log_in" android:shadowColor="#80ffffff" android:shadowDx="0.0" android:shadowDy="2.0" android:shadowRadius="1.0E-8" android:layout_weight="1" />
+                <Button android:textSize="18.0dip" android:textStyle="bold" android:textColor="@color/auth_btn" android:id="@+id/network_settings_btn" android:background="@drawable/login_btn" android:layout_width="match_parent" android:layout_height="51.0dip" android:text="@string/menu_settings" android:shadowColor="#80ffffff" android:shadowDx="0.0" android:shadowDy="2.0" android:shadowRadius="1.0E-8" android:layout_weight="1" />
+            </LinearLayout>
+            
+            <TextView android:textSize="17.0dip" android:textColor="#ffbacedf" android:gravity="center" android:id="@id/forgot_btn" android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/forgot_pass" android:shadowColor="#80163857" android:shadowDy="2.0" android:shadowRadius="1.0E-7" />
+        </LinearLayout>
+    </ScrollView>
+    <TextView android:textSize="17.0dip" android:textColor="#ffbacedf" android:gravity="center" android:orientation="vertical" android:id="@id/reg_btn" android:background="@drawable/login_reg_btn" android:layout_width="fill_parent" android:layout_height="60.0dip" android:text="@string/register" android:shadowColor="#80163857" android:shadowDy="2.0" android:shadowRadius="1.0E-7" />
+</com.vkontakte.android.ui.XLinearLayout>

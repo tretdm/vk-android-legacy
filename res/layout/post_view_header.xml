@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bg_post_comments_top" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:vk="http://schemas.android.com/apk/res/com.vkontakte.android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/wall_view_profile_btn" android:background="@drawable/highlight" android:focusable="true" android:focusableInTouchMode="false" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip">
+            <ImageView android:id="@id/wall_user_photo" android:layout_width="50.0dip" android:layout_height="50.0dip" android:layout_marginRight="12.0dip" android:src="@drawable/photo_loading" />
+            <LinearLayout android:orientation="vertical" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="16.0dip" android:textColor="#ff000000" android:ellipsize="marquee" android:id="@id/wall_view_poster_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="3.0dip" android:text="User Name" android:singleLine="true" />
+                <TextView android:textSize="14.0dip" android:textColor="@color/hint" android:id="@id/wall_view_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="today at 26:63" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <com.vkontakte.android.ExTextView android:textSize="14.0dip" android:textColor="#ff000000" android:textColorHighlight="#802b587a" android:textColorLink="#ff2b587a" android:id="@id/wall_retweet_text" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginTop="-5.0dip" android:layout_marginRight="12.0dip" android:layout_marginBottom="5.0dip" />
+    <com.vkontakte.android.ui.FlowLayout android:orientation="vertical" android:id="@id/wall_view_repost_attach" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" />
+    <include android:id="@id/wall_retweet" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/wall_retweet" />
+    <com.vkontakte.android.ExTextView android:textSize="14.0dip" android:textColor="#ff000000" android:textColorHighlight="#802b587a" android:textColorLink="#ff2b587a" android:id="@id/wall_view_post" android:paddingTop="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginRight="12.0dip" android:layout_marginBottom="7.0dip" />
+    <com.vkontakte.android.ui.FlowLayout android:orientation="vertical" android:id="@id/wall_view_attach" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:id="@id/wall_view_nlikesw" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="7.0dip">
+        <FrameLayout android:layout_gravity="center" android:id="@id/wall_view_like_wrap" android:background="@drawable/btn_post" android:layout_width="wrap_content" android:layout_height="35.0dip" android:foreground="@drawable/btn_post_hl" android:minWidth="46.0dip">
+            <TextView android:textSize="16.0dip" android:textColor="#ffb3b3b3" android:gravity="center" android:layout_gravity="center" android:id="@id/wall_view_like" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="11.0dip" android:layout_marginRight="11.0dip" android:text="32" android:drawableLeft="@drawable/ic_post_like" android:drawablePadding="8.0dip" />
+        </FrameLayout>
+        <LinearLayout android:id="@id/wall_view_like_photos" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="6.0dip" android:layout_marginRight="6.0dip" android:layout_weight="1.0" />
+        <FrameLayout android:layout_gravity="center" android:id="@id/wall_view_repost_wrap" android:background="@drawable/btn_post" android:layout_width="wrap_content" android:layout_height="35.0dip" android:foreground="@drawable/btn_post_hl" android:minWidth="46.0dip">
+            <TextView android:textSize="16.0dip" android:textColor="#ffb3b3b3" android:gravity="center" android:layout_gravity="center" android:id="@id/wall_view_repost" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="11.0dip" android:layout_marginRight="11.0dip" android:text="" android:drawableLeft="@drawable/ic_post_repost" android:drawablePadding="8.0dip" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

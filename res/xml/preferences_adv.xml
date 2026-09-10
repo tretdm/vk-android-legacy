@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:title="@string/sett_force_tablet_ui" android:key="forceTabletUI" android:summary="@string/sett_app_restart_required" android:defaultValue="false" />
+    <CheckBoxPreference android:title="@string/sett_send_by_enter" android:key="sendByEnter" android:summary="@string/sett_send_by_enter_summary" android:defaultValue="false" />
+    <CheckBoxPreference android:title="@string/sett_compress_photos" android:key="compressPhotos" android:defaultValue="true" />
+    <CheckBoxPreference android:title="@string/sett_big_images_mobile" android:key="bigImagesMobile" android:summary="@string/sett_big_images_mobile_summary" android:defaultValue="true" />
+    <CheckBoxPreference android:title="@string/sett_alt_video_output" android:key="forceVideoSurface" android:summary="@string/sett_alt_video_output_summary" android:defaultValue="false" />
+    <PreferenceCategory android:title="@string/sett_cache">
+        <Preference android:title="@string/sett_clear_img_cache" android:key="clearImageCache" android:summary="" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/sett_audio_cache">
+        <CheckBoxPreference android:title="@string/enable" android:key="enableAudioCache" android:defaultValue="true" />
+        <Preference android:title="@string/sett_clear_audio_cache" android:key="clearAudioCache" android:summary="" />
+    </PreferenceCategory>
+</PreferenceScreen>

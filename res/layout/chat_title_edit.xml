@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0dip" android:textColor="#ff898989" android:id="@id/chat_edit_stitle" android:paddingLeft="20.0dip" android:paddingTop="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/chat_title" android:shadowColor="#ffffffff" android:shadowDy="1.0" android:shadowRadius="1.0E-9" android:layout_alignRight="@id/chat_edit_title" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:textAllCaps="true" />
+    <ImageView android:id="@id/chat_edit_photo" android:background="@drawable/bg_post" android:layout_width="92.0dip" android:layout_height="86.0dip" android:src="@drawable/ic_chat_multi" android:scaleType="centerCrop" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    <EditText android:textSize="19.0dip" android:textColor="#ff000000" android:id="@id/chat_edit_title" android:background="@drawable/bg_post" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="@string/enter_chat_title" android:singleLine="true" android:layout_toLeftOf="@id/chat_edit_photo" android:layout_below="@id/chat_edit_stitle" android:layout_alignParentLeft="true" android:layout_alignWithParentIfMissing="true" />
+</RelativeLayout>

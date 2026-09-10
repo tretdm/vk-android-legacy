@@ -1,0 +1,264 @@
+.class Lcom/vkontakte/android/CheckInActivity$8;
+.super Ljava/lang/Object;
+.source "CheckInActivity.java"
+
+# interfaces
+.implements Lcom/actionbarsherlock/widget/SearchView$OnQueryTextListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/vkontakte/android/CheckInActivity;->onCreate(Landroid/os/Bundle;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lcom/vkontakte/android/CheckInActivity;
+
+
+# direct methods
+.method constructor <init>(Lcom/vkontakte/android/CheckInActivity;)V
+    .locals 0
+
+    .prologue
+    .line 1
+    iput-object p1, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    .line 267
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onQueryTextChange(Ljava/lang/String;)Z
+    .locals 4
+    .param p1, "newText"    # Ljava/lang/String;
+
+    .prologue
+    .line 284
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 285
+    const/4 p1, 0x0
+
+    .line 286
+    :cond_0
+    if-eqz p1, :cond_3
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    if-lez v0, :cond_3
+
+    .line 287
+    iget-object v0, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    iget-object v1, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v1}, Lcom/vkontakte/android/CheckInActivity;->access$13(Lcom/vkontakte/android/CheckInActivity;)Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/vkontakte/android/CheckInActivity;->access$14(Lcom/vkontakte/android/CheckInActivity;Ljava/util/ArrayList;)V
+
+    .line 288
+    iget-object v0, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v0}, Lcom/vkontakte/android/CheckInActivity;->access$13(Lcom/vkontakte/android/CheckInActivity;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    .line 289
+    iget-object v0, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v0}, Lcom/vkontakte/android/CheckInActivity;->access$15(Lcom/vkontakte/android/CheckInActivity;)Lcom/vkontakte/android/ui/LoadMoreFooterView;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/vkontakte/android/ui/LoadMoreFooterView;->setVisible(Z)V
+
+    .line 293
+    :goto_0
+    iget-object v0, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v0}, Lcom/vkontakte/android/CheckInActivity;->access$17(Lcom/vkontakte/android/CheckInActivity;)V
+
+    .line 294
+    iget-object v0, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v0}, Lcom/vkontakte/android/CheckInActivity;->access$11(Lcom/vkontakte/android/CheckInActivity;)Ljava/lang/Runnable;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    .line 295
+    iget-object v0, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v0}, Lcom/vkontakte/android/CheckInActivity;->access$2(Lcom/vkontakte/android/CheckInActivity;)Landroid/widget/ListView;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v1}, Lcom/vkontakte/android/CheckInActivity;->access$11(Lcom/vkontakte/android/CheckInActivity;)Ljava/lang/Runnable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    .line 297
+    :cond_1
+    if-eqz p1, :cond_2
+
+    .line 298
+    iget-object v0, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    new-instance v1, Lcom/vkontakte/android/CheckInActivity$SearchLoader;
+
+    iget-object v2, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    const/4 v3, 0x0
+
+    invoke-direct {v1, v2, v3}, Lcom/vkontakte/android/CheckInActivity$SearchLoader;-><init>(Lcom/vkontakte/android/CheckInActivity;Lcom/vkontakte/android/CheckInActivity$SearchLoader;)V
+
+    invoke-static {v0, v1}, Lcom/vkontakte/android/CheckInActivity;->access$12(Lcom/vkontakte/android/CheckInActivity;Ljava/lang/Runnable;)V
+
+    .line 299
+    iget-object v0, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v0}, Lcom/vkontakte/android/CheckInActivity;->access$2(Lcom/vkontakte/android/CheckInActivity;)Landroid/widget/ListView;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v1}, Lcom/vkontakte/android/CheckInActivity;->access$11(Lcom/vkontakte/android/CheckInActivity;)Ljava/lang/Runnable;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x5dc
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/widget/ListView;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    .line 301
+    :cond_2
+    const/4 v0, 0x0
+
+    return v0
+
+    .line 291
+    :cond_3
+    iget-object v0, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    iget-object v1, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v1}, Lcom/vkontakte/android/CheckInActivity;->access$16(Lcom/vkontakte/android/CheckInActivity;)Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/vkontakte/android/CheckInActivity;->access$14(Lcom/vkontakte/android/CheckInActivity;Ljava/util/ArrayList;)V
+
+    goto :goto_0
+.end method
+
+.method public onQueryTextSubmit(Ljava/lang/String;)Z
+    .locals 3
+    .param p1, "query"    # Ljava/lang/String;
+
+    .prologue
+    .line 270
+    iget-object v1, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    const-string v2, "input_method"
+
+    invoke-virtual {v1, v2}, Lcom/vkontakte/android/CheckInActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
+
+    .line 271
+    .local v0, "imm":Landroid/view/inputmethod/InputMethodManager;
+    iget-object v1, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-virtual {v1}, Lcom/vkontakte/android/CheckInActivity;->getCurrentFocus()Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
+
+    .line 272
+    iget-object v1, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v1}, Lcom/vkontakte/android/CheckInActivity;->access$11(Lcom/vkontakte/android/CheckInActivity;)Ljava/lang/Runnable;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    .line 273
+    iget-object v1, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v1}, Lcom/vkontakte/android/CheckInActivity;->access$2(Lcom/vkontakte/android/CheckInActivity;)Landroid/widget/ListView;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v2}, Lcom/vkontakte/android/CheckInActivity;->access$11(Lcom/vkontakte/android/CheckInActivity;)Ljava/lang/Runnable;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/ListView;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    .line 274
+    iget-object v1, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    const/4 v2, 0x0
+
+    invoke-static {v1, v2}, Lcom/vkontakte/android/CheckInActivity;->access$12(Lcom/vkontakte/android/CheckInActivity;Ljava/lang/Runnable;)V
+
+    .line 276
+    :cond_0
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const/4 p1, 0x0
+
+    .line 277
+    :cond_1
+    iget-object v1, p0, Lcom/vkontakte/android/CheckInActivity$8;->this$0:Lcom/vkontakte/android/CheckInActivity;
+
+    invoke-static {v1, p1}, Lcom/vkontakte/android/CheckInActivity;->access$4(Lcom/vkontakte/android/CheckInActivity;Ljava/lang/String;)V
+
+    .line 279
+    const/4 v1, 0x1
+
+    return v1
+.end method

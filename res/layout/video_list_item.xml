@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.vkontakte.android.ui.OverlayImageView android:id="@id/album_thumb" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" overlay="@drawable/photo_album_overlay" />
+    <LinearLayout android:gravity="bottom" android:layout_gravity="bottom" android:orientation="vertical" android:padding="12.0dip" android:layout_width="fill_parent" android:layout_height="100.0dip">
+        <TextView android:textSize="20.0dip" android:textColor="#ffffffff" android:ellipsize="end" android:id="@id/album_title" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Album Title" android:maxLines="2" android:shadowColor="#ff000000" android:shadowRadius="7.0" />
+        <TextView android:textSize="17.0dip" android:textColor="#ccffffff" android:id="@id/album_qty" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="9000 photos" />
+    </LinearLayout>
+</FrameLayout>

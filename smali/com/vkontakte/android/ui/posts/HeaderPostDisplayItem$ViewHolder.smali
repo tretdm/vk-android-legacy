@@ -1,0 +1,48 @@
+.class Lcom/vkontakte/android/ui/posts/HeaderPostDisplayItem$ViewHolder;
+.super Ljava/lang/Object;
+.source "HeaderPostDisplayItem.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/vkontakte/android/ui/posts/HeaderPostDisplayItem;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "ViewHolder"
+.end annotation
+
+
+# instance fields
+.field menuBtn:Landroid/view/View;
+
+.field name:Landroid/widget/TextView;
+
+.field photo:Landroid/widget/ImageView;
+
+.field profileBtn:Landroid/view/View;
+
+.field time:Landroid/widget/TextView;
+
+
+# direct methods
+.method private constructor <init>()V
+    .locals 0
+
+    .prologue
+    .line 111
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Lcom/vkontakte/android/ui/posts/HeaderPostDisplayItem$ViewHolder;)V
+    .locals 0
+
+    .prologue
+    .line 111
+    invoke-direct {p0}, Lcom/vkontakte/android/ui/posts/HeaderPostDisplayItem$ViewHolder;-><init>()V
+
+    return-void
+.end method

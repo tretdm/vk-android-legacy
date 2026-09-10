@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/RelativeLayout1" android:background="@drawable/bg_profile_info_item" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/profile_info_photo" android:layout_width="47.0dip" android:layout_height="47.0dip" android:src="@drawable/photo_loading" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <TextView android:textSize="17.0dip" android:textColor="#ff000000" android:id="@id/profile_info_text" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginTop="3.0dip" android:text="Info Data" android:layout_toRightOf="@id/profile_info_photo" android:layout_alignParentTop="true" />
+    <TextView android:textSize="12.0dip" android:textColor="#96000000" android:id="@id/profile_info_title" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Info title" android:layout_below="@id/profile_info_text" android:layout_alignLeft="@id/profile_info_text" android:textAllCaps="true" />
+</RelativeLayout>

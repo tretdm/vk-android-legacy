@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/service_msg_wrap" android:padding="7.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0dip" android:textStyle="italic" android:textColor="#ff929ead" android:gravity="center" android:id="@id/msg_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Service message" android:shadowColor="#88ffffff" android:shadowDy="1.0" android:shadowRadius="1.0E-5" />
+    <com.vkontakte.android.ui.FlowLayout android:layout_gravity="center_horizontal" android:id="@id/msg_attachments" android:background="@drawable/profile_photo_shadow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" />
+</LinearLayout>
