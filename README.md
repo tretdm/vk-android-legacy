@@ -1,5 +1,5 @@
 # LegacyVK for Android
-Legacy VKontakte Android pre-patched app with OpenVK social network support. Contains decompiled Smali code and resources only.
+An older versions of the VKontakte app for Android, pre-patched to support the OpenVK social network.
 
 ### Disclaimer
 LegacyVK and OpenVK are fan projects; they are not affiliated with VK LLC.
