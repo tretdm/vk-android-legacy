@@ -26,7 +26,7 @@
     <string name="audio_play_error">Сталася помилка при відтворенні.</string>
     <string name="cancel">Скасувати</string>
     <string name="ok">OK</string>
-    <string name="about_text">&lt;b>ВКонтакте для Android&lt;/b>&lt;br/>&lt;small>Версія %1$s (збірка %2$d)&lt;/small>&lt;br/>&lt;br/>&lt;small>Модифiкацiя вiд Дмитра Третьякова спецiально для аматорського проекту &lt;a href=&quot;https://openvk.org&quot;>OpenVK&lt;/a>. Не пов\'язаний з ООО &quot;ВК&quot;.&lt;/small></string>
+    <string name="about_text">&lt;b>LegacyVK&lt;/b>&lt;br/>&lt;small>Створено на базі додатків ВКонтакте версiї %1$s (збірка %2$d)&lt;/small>&lt;br/>&lt;br/>&lt;small>Модифiкацiя вiд Дмитра Третьякова спецiально для аматорського проекту &lt;a href=&quot;https://openvk.org&quot;>OpenVK&lt;/a>. Не пов\'язаний з ООО &quot;ВК&quot;.&lt;/small></string>
     <string name="newsfeed">Новини</string>
     <string name="auth">Авторизація</string>
     <string name="wall_view">Запис на стіні</string>
@@ -844,6 +844,9 @@
     <string name="recom_friends_title">Додайте в друзі людей, з якими Ви знайомі.</string>
     
     <string name="sett_network_prefs">Налаштування мережi</string>
+    <string name="sett_use_proxy">Використовувати проксі-сервер</string>
+    <string name="sett_proxy_address">Адрес проксі-сервера</string>
     <string name="sett_api_domain">Домен API</string>
     <string name="sett_oauth_domain">Домен OAuth</string>
+    <string name="sett_app_restart_required_many">Ці налаштування набуде чинності після перезапуску програми</string>
 </resources>

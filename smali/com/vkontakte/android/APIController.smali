@@ -527,8 +527,86 @@
     invoke-direct {v0, v1, v11}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
 
     sput-object v29, Lcom/vkontakte/android/APIController;->httpclient:Lorg/apache/http/client/HttpClient;
+    
+    # HTTP/HTTPS proxy parameters for bypass TLS connection in older Android devices or firmwares
+    
+    .line 110
+    const-string v7, "proxyAddress"
+    const-string v8, ""
+    
+    sget-object v12, Lcom/vkontakte/android/VKApplication;->context:Landroid/content/Context;
+    invoke-static {v12}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    move-result-object v12
+    
+    invoke-interface {v12, v7, v8}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v12
+    
+    const-string v8, ":"
+    invoke-virtual {v12, v8}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    move-result-object v12
+    
+    .line 111
+    array-length v1, v12
+    const/16 v2, 0x2
+    if-lt v1, v2, :cond_arrsize_2_else
+    
+    sget-object v13, Lcom/vkontakte/android/VKApplication;->context:Landroid/content/Context;
+    invoke-static {v13}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    move-result-object v13
+    
+    const-string v7, "useProxy"
+    const/4 v1, 0x0
+    const/4 v2, 0x1
+    invoke-interface {v13, v7, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    move-result v1
+    if-ne v1, v2, :cond_arrsize_2_else
+    
+    .line 112
+    .local v12, "proxyAddressMask":[Ljava/lang/String;
+    const/4 v2, 0x0
+    aget-object v1, v12, v2
 
-    .line 124
+    .line 113
+    const/4 v2, 0x1
+    aget-object v6, v12, v2
+    
+    invoke-static {v6}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    
+    move-result v6
+    
+    .line 114
+    sget-object v12, Lcom/vkontakte/android/VKApplication;->context:Landroid/content/Context;
+    invoke-static {v12}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    move-result-object v12
+    
+    const-string v7, "proxyType"
+    const-string v8, "http"
+    invoke-interface {v12, v7, v8}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v12
+    
+    .line 115
+    .local v1, "proxyAddress":Ljava/lang/String;
+    .local v6, "proxyPort":I
+    .local v12, "proxyType":Ljava/lang/String;
+    
+    new-instance v14, Lorg/apache/http/HttpHost;
+    invoke-direct {v14, v1, v6, v12}, Lorg/apache/http/HttpHost;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    
+    invoke-interface {v0}, Lorg/apache/http/client/HttpClient;->getParams()Lorg/apache/http/params/HttpParams;
+    move-result-object v11
+    
+    sget-object v7, Lorg/apache/http/conn/params/ConnRoutePNames;->DEFAULT_PROXY:Ljava/lang/String;
+    
+    invoke-interface {v11, v7, v14}, Lorg/apache/http/params/HttpParams;->setParameter(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/http/params/HttpParams;
+    
+    :cond_arrsize_2_else
+
+    .line 144
+    .end local v1
+    .end local v6
+    .end local v12
+    .end local v13
+    .end local v14
     .end local v11    # "hParams":Lorg/apache/http/params/HttpParams;
     .end local v22    # "registry":Lorg/apache/http/conn/scheme/SchemeRegistry;
     :cond_0
@@ -628,7 +706,7 @@
 
     move-result-object v28
 
-    .line 126
+    .line 145
     .local v28, "url":Ljava/lang/String;
     new-instance v12, Lorg/apache/http/client/methods/HttpPost;
 
@@ -636,13 +714,13 @@
 
     invoke-direct {v12, v0}, Lorg/apache/http/client/methods/HttpPost;-><init>(Ljava/lang/String;)V
 
-    .line 127
+    .line 146
     .local v12, "httppost":Lorg/apache/http/client/methods/HttpPost;
     move-object/from16 v0, p0
 
     iput-object v12, v0, Lcom/vkontakte/android/APIRequest;->httppost:Lorg/apache/http/client/methods/HttpPost;
 
-    .line 128
+    .line 147
     const-string v29, "Accept-Encoding"
 
     const-string v30, "gzip"
@@ -653,25 +731,25 @@
 
     invoke-virtual {v12, v0, v1}, Lorg/apache/http/client/methods/HttpPost;->addHeader(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 129
+    .line 148
     const/16 v20, 0x0
 
-    .line 130
+    .line 149
     .local v20, "obj":Lorg/json/JSONObject;
     const/16 v23, 0x0
 
-    .line 131
+    .line 150
     .local v23, "response":Lorg/apache/http/HttpResponse;
     const/4 v15, 0x0
 
-    .line 134
+    .line 154
     .local v15, "is":Ljava/io/InputStream;
     :try_start_1
     sget-object v29, Lcom/vkontakte/android/Global;->accessToken:Ljava/lang/String;
 
     if-eqz v29, :cond_2
 
-    .line 135
+    .line 155
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/vkontakte/android/APIRequest;->params:Ljava/util/Hashtable;
@@ -684,7 +762,7 @@
 
     invoke-virtual/range {v29 .. v31}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 137
+    .line 157
     :cond_2
     new-instance v19, Ljava/util/ArrayList;
 
@@ -696,7 +774,7 @@
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 138
+    .line 158
     .local v19, "nameValuePairs":Ljava/util/List;, "Ljava/util/List<Lorg/apache/http/NameValuePair;>;"
     move-object/from16 v0, p0
 
@@ -708,7 +786,7 @@
 
     move-result-object v7
 
-    .line 139
+    .line 159
     .local v7, "e":Ljava/util/Enumeration;, "Ljava/util/Enumeration<Ljava/lang/String;>;"
     sget-boolean v29, Lcom/vkontakte/android/APIController;->API_DEBUG:Z
 
@@ -762,7 +840,7 @@
 
     invoke-static {v0, v1}, Lcom/vkontakte/android/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 140
+    .line 160
     :cond_3
     :goto_2
     invoke-interface {v7}, Ljava/util/Enumeration;->hasMoreElements()Z
@@ -771,7 +849,7 @@
 
     if-nez v29, :cond_d
 
-    .line 146
+    .line 166
     sget-boolean v29, Lcom/vkontakte/android/APIController;->API_DEBUG:Z
 
     if-eqz v29, :cond_4
@@ -782,7 +860,7 @@
 
     invoke-static/range {v29 .. v30}, Lcom/vkontakte/android/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 147
+    .line 167
     :cond_4
     sget-object v29, Lcom/vkontakte/android/Global;->accessToken:Ljava/lang/String;
 
@@ -792,12 +870,12 @@
 
     if-eqz v29, :cond_5
 
-    .line 148
+    .line 168
     invoke-virtual/range {p0 .. p0}, Lcom/vkontakte/android/APIRequest;->getSig()Ljava/lang/String;
 
     move-result-object v25
 
-    .line 149
+    .line 169
     .local v25, "sig":Ljava/lang/String;
     new-instance v29, Lorg/apache/http/message/BasicNameValuePair;
 
@@ -817,7 +895,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 151
+    .line 171
     .end local v25    # "sig":Ljava/lang/String;
     :cond_5
     new-instance v29, Lorg/apache/http/client/entity/UrlEncodedFormEntity;
@@ -836,12 +914,12 @@
 
     invoke-virtual {v12, v0}, Lorg/apache/http/client/methods/HttpPost;->setEntity(Lorg/apache/http/HttpEntity;)V
 
-    .line 153
+    .line 173
     sget-boolean v29, Lcom/vkontakte/android/APIController;->API_DEBUG:Z
 
     if-eqz v29, :cond_6
 
-    .line 154
+    .line 174
     const-string v30, "vk"
 
     new-instance v31, Ljava/lang/StringBuilder;
@@ -914,12 +992,12 @@
 
     invoke-static {v0, v1}, Lcom/vkontakte/android/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 155
+    .line 175
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v26
 
-    .line 159
+    .line 179
     :cond_6
     sget-object v29, Lcom/vkontakte/android/APIController;->httpclient:Lorg/apache/http/client/HttpClient;
 
@@ -929,7 +1007,7 @@
 
     move-result-object v23
 
-    .line 160
+    .line 180
     invoke-virtual/range {p0 .. p0}, Lcom/vkontakte/android/APIRequest;->isCanceled()Z
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1

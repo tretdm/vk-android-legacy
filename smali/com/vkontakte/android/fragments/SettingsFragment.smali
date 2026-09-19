@@ -965,15 +965,7 @@
 
     invoke-virtual {v0, v3}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
-    if-eqz v3, :cond_6
-
-    .line 179
-    const v3, 0x7f080243
-
-    invoke-virtual {v0, v3}, Landroid/preference/Preference;->setSummary(I)V
-
     .line 182
-    :cond_6
     const-string v3, "dnd_cancel"
 
     invoke-virtual {p0, v3}, Lcom/vkontakte/android/fragments/SettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;

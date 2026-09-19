@@ -1413,7 +1413,7 @@
 .end method
 
 .method public static getURL(Ljava/lang/String;Lcom/vkontakte/android/ImageCache$RequestWrapper;Lcom/vkontakte/android/ImageCache$ProgressCallback;)[B
-    .locals 20
+    .locals 25
     .param p0, "url"    # Ljava/lang/String;
     .param p1, "w"    # Lcom/vkontakte/android/ImageCache$RequestWrapper;
     .param p2, "pc"    # Lcom/vkontakte/android/ImageCache$ProgressCallback;
@@ -1517,10 +1517,83 @@
     move-object/from16 v0, v16
 
     invoke-direct {v0, v3, v6}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
-
-    sput-object v16, Lcom/vkontakte/android/Global;->httpclient:Lorg/apache/http/client/HttpClient;
+    
+    # HTTP/HTTPS proxy parameters for bypass TLS connection in older Android devices or firmwares
 
     .line 423
+    const-string v7, "proxyAddress"
+    const-string v8, ""
+    
+    sget-object v12, Lcom/vkontakte/android/VKApplication;->context:Landroid/content/Context;
+    invoke-static {v12}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    move-result-object v12
+    
+    invoke-interface {v12, v7, v8}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v12
+    
+    const-string v8, ":"
+    invoke-virtual {v12, v8}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    move-result-object v12
+    
+    .line 424
+    array-length v1, v12
+    const/16 v2, 0x2
+    if-lt v1, v2, :cond_arrsize_2_else
+    
+    sget-object v13, Lcom/vkontakte/android/VKApplication;->context:Landroid/content/Context;
+    invoke-static {v13}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    move-result-object v13
+    
+    const-string v7, "useProxy"
+    const/4 v1, 0x0
+    const/4 v2, 0x1
+    invoke-interface {v13, v7, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    move-result v1
+    if-ne v1, v2, :cond_arrsize_2_else
+    
+    .line 426
+    .local v12, "proxyAddressMask":[Ljava/lang/String;
+    const/4 v2, 0x0
+    aget-object v1, v12, v2
+
+    .line 427
+    const/4 v2, 0x1
+    aget-object v6, v12, v2
+    
+    invoke-static {v6}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    
+    move-result v6
+    
+    .line 428
+    sget-object v12, Lcom/vkontakte/android/VKApplication;->context:Landroid/content/Context;
+    invoke-static {v12}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    move-result-object v12
+    
+    const-string v7, "proxyType"
+    const-string v8, "http"
+    invoke-interface {v12, v7, v8}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v12
+    
+    .line 429
+    .local v1, "proxyAddress":Ljava/lang/String;
+    .local v6, "proxyPort":I
+    .local v12, "proxyType":Ljava/lang/String;
+    
+    new-instance v14, Lorg/apache/http/HttpHost;
+    invoke-direct {v14, v1, v6, v12}, Lorg/apache/http/HttpHost;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    
+    invoke-interface {v0}, Lorg/apache/http/client/HttpClient;->getParams()Lorg/apache/http/params/HttpParams;
+    move-result-object v11
+    
+    sget-object v7, Lorg/apache/http/conn/params/ConnRoutePNames;->DEFAULT_PROXY:Ljava/lang/String;
+    
+    invoke-interface {v11, v7, v14}, Lorg/apache/http/params/HttpParams;->setParameter(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/http/params/HttpParams;
+    
+    :cond_arrsize_2_else
+    
+    sput-object v16, Lcom/vkontakte/android/Global;->httpclient:Lorg/apache/http/client/HttpClient;
+    
+    .line 432
     .end local v3    # "cm":Lorg/apache/http/impl/conn/tsccm/ThreadSafeClientConnManager;
     .end local v6    # "hParams":Lorg/apache/http/params/HttpParams;
     .end local v14    # "registry":Lorg/apache/http/conn/scheme/SchemeRegistry;
@@ -1531,7 +1604,7 @@
 
     invoke-direct {v7, v0}, Lorg/apache/http/client/methods/HttpGet;-><init>(Ljava/lang/String;)V
 
-    .line 424
+    .line 433
     .local v7, "httppost":Lorg/apache/http/client/methods/HttpGet;
     const-string v16, ".jpg"
 
@@ -1569,7 +1642,7 @@
 
     if-nez v16, :cond_1
 
-    .line 425
+    .line 434
     const-string v16, "Accept-Encoding"
 
     const-string v17, "gzip"
@@ -1580,7 +1653,7 @@
 
     invoke-virtual {v7, v0, v1}, Lorg/apache/http/client/methods/HttpGet;->addHeader(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 426
+    .line 435
     :cond_1
     if-eqz p1, :cond_2
 
@@ -1588,7 +1661,7 @@
 
     iput-object v7, v0, Lcom/vkontakte/android/ImageCache$RequestWrapper;->request:Lorg/apache/http/client/methods/HttpGet;
 
-    .line 429
+    .line 436
     :cond_2
     :try_start_0
     sget-object v16, Lcom/vkontakte/android/Global;->httpclient:Lorg/apache/http/client/HttpClient;
@@ -1599,7 +1672,7 @@
 
     move-result-object v15
 
-    .line 432
+    .line 437
     .local v15, "response":Lorg/apache/http/HttpResponse;
     invoke-interface {v15}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
 
@@ -1609,7 +1682,7 @@
 
     move-result-object v8
 
-    .line 434
+    .line 438
     .local v8, "is":Ljava/io/InputStream;
     const-string v16, "Content-Encoding"
 
@@ -1617,7 +1690,7 @@
 
     move-result-object v4
 
-    .line 435
+    .line 439
     .local v4, "contentEncoding":Lorg/apache/http/Header;
     if-eqz v4, :cond_3
 
@@ -1641,7 +1714,7 @@
     .local v9, "is":Ljava/io/InputStream;
     move-object v8, v9
 
-    .line 437
+    .line 440
     .end local v9    # "is":Ljava/io/InputStream;
     .restart local v8    # "is":Ljava/io/InputStream;
     :cond_3
@@ -1657,17 +1730,17 @@
 
     long-to-int v11, v0
 
-    .line 438
+    .line 441
     .local v11, "len":I
     const/4 v12, 0x0
 
-    .line 439
+    .line 442
     .local v12, "loaded":I
     new-instance v2, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v2}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 440
+    .line 443
     .local v2, "buf":Ljava/io/ByteArrayOutputStream;
     const/16 v16, 0x1400
 
@@ -1675,11 +1748,11 @@
 
     new-array v13, v0, [B
 
-    .line 441
+    .line 444
     .local v13, "rd":[B
     const/4 v10, 0x0
 
-    .line 442
+    .line 445
     .local v10, "l":I
     :cond_4
     :goto_0

@@ -67,7 +67,7 @@
     <string name="audio_play_error">A playback error has occurred.</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
-    <string name="about_text">&lt;b>VK for Android&lt;/b>&lt;br/>&lt;small>Version %1$s (build %2$d)&lt;/small>&lt;br/>&lt;br/>&lt;small>Modded by Dmitry Tretyakov for &lt;a href=&quot;https://openvk.org&quot;>OpenVK fan project&lt;/a>. Not affiliated with VK LLC.&lt;/small></string>
+    <string name="about_text">&lt;b>LegacyVK&lt;/b>&lt;br/>&lt;small>Based on VK ver. %1$s (build %2$d)&lt;/small>&lt;br/>&lt;br/>&lt;small>Modded by Dmitry Tretyakov for &lt;a href=&quot;https://openvk.org&quot;>OpenVK fan project&lt;/a>. Not affiliated with VK LLC.&lt;/small></string>
     <string name="newsfeed">News</string>
     <string name="auth">Authorization</string>
     <string name="wall_view">Post</string>
@@ -890,6 +890,11 @@
     <string name="not_avail_for_this_album">This action is not available for this album</string>
     
     <string name="sett_network_prefs">Network settings</string>
+    <string name="sett_use_proxy">Use proxy server</string>
+    <string name="sett_proxy_address">Proxy server address</string>
     <string name="sett_api_domain">API domain</string>
     <string name="sett_oauth_domain">OAuth domain</string>
+    <string name="sett_proxy_address_alt">Address:</string>
+    <string name="sett_proxy_type">Type:</string>
+    <string name="sett_app_restart_required_many">These settings will take effect after restarting the application</string>
 </resources>

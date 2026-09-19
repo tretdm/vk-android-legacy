@@ -26,7 +26,7 @@
     <string name="audio_play_error">Произошла ошибка при воспроизведении.</string>
     <string name="cancel">Отмена</string>
     <string name="ok">OK</string>
-    <string name="about_text">&lt;b>ВКонтакте для Android&lt;/b>&lt;br/>&lt;small>Версия %1$s (сборка %2$d)&lt;/small>&lt;br/>&lt;br/>&lt;small>Модификация от Дмитрия Третьякова, специально для любительского проекта &lt;a href=&quot;https://openvk.org&quot;>OpenVK&lt;/a>, не связанный с ООО &quot;ВК&quot;.&lt;/small></string>
+    <string name="about_text">&lt;b>LegacyVK&lt;/b>&lt;br/>&lt;br/>&lt;small>Создано на базе приложения ВКонтакте версии %1$s (сборка %2$d)&lt;/small>&lt;br/>&lt;br/>&lt;small>Модификация от Дмитрия Третьякова, специально для любительского проекта &lt;a href=&quot;https://openvk.org&quot;>OpenVK&lt;/a>, не связанный с ООО &quot;ВК&quot;.&lt;/small></string>
     <string name="newsfeed">Новости</string>
     <string name="auth">Авторизация</string>
     <string name="wall_view">Запись на стене</string>
@@ -846,6 +846,13 @@
     <string name="recom_friends_title">Добавьте в друзья людей, с которыми Вы знакомы.</string>
     
     <string name="sett_network_prefs">Настройки сети</string>
+    <string name="sett_use_proxy">Использовать прокси-сервер</string>
+    <string name="sett_proxy_address">Адрес прокси-сервера</string>
     <string name="sett_api_domain">Домен API</string>
     <string name="sett_oauth_domain">Домен OAuth</string>
+    
+    <string name="sett_proxy_address_alt">Aдрес:</string>
+    <string name="sett_proxy_type">Тип:</string>
+    
+    <string name="sett_app_restart_required_many">Эти настройки вступят в силу после перезапуска приложения</string>
 </resources>

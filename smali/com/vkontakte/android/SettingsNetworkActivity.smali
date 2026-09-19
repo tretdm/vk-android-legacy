@@ -22,13 +22,13 @@
 
     .prologue
     .line 24
-    invoke-virtual {p0}, Lcom/vkontakte/android/SettingsAdvancedActivity;->getBaseContext()Landroid/content/Context;
+    #invoke-virtual {p0}, Lcom/vkontakte/android/SettingsAdvancedActivity;->getBaseContext()Landroid/content/Context;
 
-    move-result-object v2
+    #move-result-object v2
 
-    invoke-static {v2}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    #invoke-static {v2}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
-    move-result-object v1
+    #move-result-object v1
 
     .line 27
     invoke-super {p0, p1}, Lcom/actionbarsherlock/app/SherlockPreferenceActivity;->onCreate(Landroid/os/Bundle;)V
@@ -47,17 +47,35 @@
 
     invoke-virtual {v2, v3}, Lcom/actionbarsherlock/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
     
+    .line 23
+    const-string v2, "apiProxy"
+
+    invoke-virtual {p0, v2}, Lcom/vkontakte/android/SettingsNetworkActivity;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+    
+    .line 24
+    .restart local v0    # "pref":Landroid/preference/Preference;
+    new-instance v2, Lcom/vkontakte/android/SettingsNetworkActivity$1;
+
+    invoke-direct {v2, p0}, Lcom/vkontakte/android/SettingsNetworkActivity$1;-><init>(Lcom/vkontakte/android/SettingsNetworkActivity;)V
+
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+
+    .line 45
+    .local v0, "pref":Landroid/preference/Preference;
+    
     .line 32
     return-void
 
 .end method
 
 .method public onOptionsItemSelected(Lcom/actionbarsherlock/view/MenuItem;)Z
-    .locals 2
+    .locals 5
     .param p1, "item"    # Lcom/actionbarsherlock/view/MenuItem;
 
     .prologue
-    .line 121
+    .line 148
     invoke-interface {p1}, Lcom/actionbarsherlock/view/MenuItem;->getItemId()I
 
     move-result v0
@@ -66,13 +84,13 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 122
+    .line 151
     invoke-virtual {p0}, Lcom/vkontakte/android/SettingsAdvancedActivity;->onBackPressed()V
 
-    .line 123
+    .line 152
     const/4 v0, 0x1
 
-    .line 125
+    .line 153
     :goto_0
     return v0
 
