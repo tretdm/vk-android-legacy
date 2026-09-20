@@ -282,14 +282,78 @@
     invoke-direct {v3, v2, v12}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 452
-    .local v3, "file":Ljava/io/File;
-    invoke-virtual {v10}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
-
+    const-string v12, "proxyAddress"
+    const-string v13, ""
+    
+    sget-object v11, Lcom/vkontakte/android/VKApplication;->context:Landroid/content/Context;
+    invoke-static {v11}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    move-result-object v11
+    
+    invoke-interface {v11, v12, v13}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v11
+    
+    const-string v13, ":"
+    invoke-virtual {v11, v13}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    move-result-object v11
+    
+    .line 454
+    array-length v1, v11
+    const/16 v2, 0x2
+    if-lt v1, v2, :cond_arrsize_2_else
+    
+    .line 455
+    sget-object v14, Lcom/vkontakte/android/VKApplication;->context:Landroid/content/Context;
+    invoke-static {v14}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    move-result-object v14
+    
+    const-string v12, "useProxy"
+    const/4 v1, 0x0
+    const/4 v2, 0x1
+    invoke-interface {v14, v7, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    move-result v1
+    if-ne v1, v2, :cond_arrsize_2_else
+    
+    new-instance v1, Ljava/net/InetSocketAddress;
+    
+    .line 456
+    .local v11, "proxyAddressMask":[Ljava/lang/String;
+    const/4 v2, 0x0
+    aget-object v12, v11, v2
+    
+    .line 457
+    const/4 v2, 0x1
+    aget-object v13, v11, v2
+    invoke-static {v13}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    move-result v2
+    
+    .line 458
+    invoke-direct {v1, v12, v2}, Ljava/net/InetSocketAddress;-><init>(Ljava/lang/String;I)V
+    sget-object v2, Ljava/net/Proxy$Type;->HTTP:Ljava/net/Proxy$Type;
+    new-instance v9, Ljava/net/Proxy;
+    invoke-direct {v9, v2, v1}, Ljava/net/Proxy;-><init>(Ljava/net/Proxy$Type;Ljava/net/InetSocketAddress;)V
+    
+    invoke-virtual {v10, v9}, Ljava/net/URL;->openConnection(Ljava/net/Proxy;)Ljava/net/URLConnection;
     move-result-object v1
-
     check-cast v1, Ljava/net/HttpURLConnection;
+    
+    goto :cond_arrsize_2_exit
+    
+    :cond_arrsize_2_else
+    
+    invoke-virtual {v10}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
+    move-result-object v1
+    check-cast v1, Ljava/net/HttpURLConnection;
+    
+    :cond_arrsize_2_exit
 
-    .line 453
+    .line 472
+    .end local v2
+    .end local v9
+    .end local v11
+    .end local v12
+    .end local v13
+    .end local v14
+    .local v3, "file":Ljava/io/File;
     .local v1, "conn":Ljava/net/HttpURLConnection;
     const-string v12, "Range"
 
@@ -323,15 +387,15 @@
 
     invoke-virtual {v1, v12, v13}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 454
+    .line 474
     invoke-virtual {v1}, Ljava/net/HttpURLConnection;->connect()V
 
-    .line 455
+    .line 475
     invoke-virtual {v1}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;
 
     move-result-object v9
 
-    .line 456
+    .line 476
     .local v9, "sin":Ljava/io/InputStream;
     new-instance v5, Ljava/io/FileOutputStream;
 
@@ -339,7 +403,7 @@
 
     invoke-direct {v5, v3, v12}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;Z)V
 
-    .line 457
+    .line 477
     .local v5, "os":Ljava/io/FileOutputStream;
     invoke-virtual {v5}, Ljava/io/FileOutputStream;->getChannel()Ljava/nio/channels/FileChannel;
 
@@ -351,16 +415,16 @@
 
     invoke-virtual {v12, v13, v14}, Ljava/nio/channels/FileChannel;->position(J)Ljava/nio/channels/FileChannel;
 
-    .line 460
+    .line 478
     const/4 v7, 0x0
 
-    .line 461
+    .line 479
     .local v7, "read":I
     const/16 v12, 0x2800
 
     new-array v0, v12, [B
 
-    .line 462
+    .line 480
     .local v0, "buf":[B
     :goto_3
     invoke-virtual {v9, v0}, Ljava/io/InputStream;->read([B)I
@@ -369,23 +433,23 @@
 
     if-gtz v7, :cond_3
 
-    .line 466
+    .line 481
     invoke-virtual {v5}, Ljava/io/FileOutputStream;->close()V
 
-    .line 467
+    .line 482
     invoke-virtual {v9}, Ljava/io/InputStream;->close()V
 
-    .line 468
+    .line 483
     invoke-virtual {v1}, Ljava/net/HttpURLConnection;->disconnect()V
 
-    .line 469
+    .line 484
     iget-object v12, v4, Lcom/vkontakte/android/cache/AudioCache$RangesInfo;->a:Ljava/util/ArrayList;
 
     const/4 v13, 0x0
 
     invoke-virtual {v12, v13}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 470
+    .line 485
     const-string v12, "vk"
 
     const-string v13, "Done!"
@@ -394,13 +458,13 @@
 
     goto/16 :goto_2
 
-    .line 463
+    .line 486
     :cond_3
     const/4 v12, 0x0
 
     invoke-virtual {v5, v0, v12, v7}, Ljava/io/FileOutputStream;->write([BII)V
 
-    .line 464
+    .line 487
     iget v12, v6, Lcom/vkontakte/android/cache/AudioCache$FileRange;->startOffset:I
 
     add-int/2addr v12, v7

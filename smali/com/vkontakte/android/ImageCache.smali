@@ -496,6 +496,76 @@
     new-instance v12, Lorg/apache/http/impl/client/DefaultHttpClient;
 
     invoke-direct {v12, v1, v3}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
+    
+    # HTTP/HTTPS proxy parameters for bypass TLS connection in older Android devices or firmwares
+
+    .line 423
+    const-string v7, "proxyAddress"
+    const-string v8, ""
+    
+    sget-object v13, Lcom/vkontakte/android/VKApplication;->context:Landroid/content/Context;
+    invoke-static {v13}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    move-result-object v13
+    
+    invoke-interface {v13, v7, v8}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v10
+    
+    const-string v8, ":"
+    invoke-virtual {v10, v8}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    move-result-object v10
+    
+    .line 424
+    .local v13, "prefs":Landroid/content/SharedPreferences;
+    array-length v1, v10
+    const/16 v2, 0x2
+    if-lt v1, v2, :cond_arrsize_2_else
+    
+    const-string v7, "useProxy"
+    const/4 v1, 0x0
+    const/4 v2, 0x1
+    invoke-interface {v13, v7, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    move-result v1
+    if-ne v1, v2, :cond_arrsize_2_else
+    
+    .line 426
+    .local v10, "proxyAddressMask":[Ljava/lang/String;
+    const/4 v2, 0x0
+    aget-object v1, v10, v2
+
+    .line 427
+    const/4 v2, 0x1
+    aget-object v6, v10, v2
+    
+    invoke-static {v6}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    
+    move-result v6
+    
+    .line 428
+    sget-object v10, Lcom/vkontakte/android/VKApplication;->context:Landroid/content/Context;
+    invoke-static {v10}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    move-result-object v10
+    
+    const-string v7, "proxyType"
+    const-string v8, "http"
+    invoke-interface {v10, v7, v8}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v10
+    
+    .line 429
+    .local v1, "proxyAddress":Ljava/lang/String;
+    .local v6, "proxyPort":I
+    .local v10, "proxyType":Ljava/lang/String;
+    
+    new-instance v14, Lorg/apache/http/HttpHost;
+    invoke-direct {v14, v1, v6, v10}, Lorg/apache/http/HttpHost;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    
+    invoke-interface {v12}, Lorg/apache/http/client/HttpClient;->getParams()Lorg/apache/http/params/HttpParams;
+    move-result-object v11
+    
+    sget-object v7, Lorg/apache/http/conn/params/ConnRoutePNames;->DEFAULT_PROXY:Ljava/lang/String;
+    
+    invoke-interface {v11, v7, v14}, Lorg/apache/http/params/HttpParams;->setParameter(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/http/params/HttpParams;
+    
+    :cond_arrsize_2_else
 
     sput-object v12, Lcom/vkontakte/android/ImageCache;->httpClient:Lorg/apache/http/client/HttpClient;
 
